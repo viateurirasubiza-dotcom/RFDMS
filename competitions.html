@@ -822,7 +822,474 @@ Police FC vs AS Kigali
 
 
 
+<script>
 
+
+// =====================================
+// RFDMS COMPETITION MANAGEMENT JS
+// =====================================
+
+
+
+// Competition Data
+
+
+let teams=[
+
+{
+name:"APR FC",
+points:45,
+status:"Leader"
+},
+
+
+{
+name:"Rayon Sports",
+points:42,
+status:"Active"
+},
+
+
+{
+name:"Police FC",
+points:39,
+status:"Active"
+}
+
+];
+
+
+
+
+
+
+// CREATE COMPETITION BUTTON
+
+
+let createBtn=
+document.querySelector("button");
+
+
+
+createBtn.onclick=function(){
+
+
+let name=
+prompt(
+"Enter Competition Name:"
+);
+
+
+
+if(name){
+
+
+alert(
+
+"🏆 Competition Created Successfully\n\n"+
+name
+
+);
+
+
+}
+
+};
+
+
+
+
+
+
+
+
+
+// SORT LEAGUE TABLE AI
+
+
+function updateTable(){
+
+
+teams.sort(
+(a,b)=>
+b.points-a.points
+);
+
+
+
+let rows=
+document.querySelectorAll("table")[0]
+.querySelectorAll("tr");
+
+
+
+for(let i=1;i<rows.length;i++){
+
+
+rows[i].children[0]
+.innerHTML=i;
+
+
+
+rows[i].children[1]
+.innerHTML=
+teams[i-1].name;
+
+
+
+rows[i].children[2]
+.innerHTML=
+teams[i-1].points;
+
+
+
+rows[i].children[3]
+.innerHTML=
+
+`
+<span class="badge">
+
+${i==1?"Leader":"Active"}
+
+</span>
+
+`;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+// SIMULATE MATCH RESULT
+
+
+function simulateMatch(){
+
+
+let winner=
+Math.floor(Math.random()*teams.length);
+
+
+
+teams[winner].points+=3;
+
+
+
+updateTable();
+
+
+
+alert(
+
+"⚽ Match Completed\n\n"+
+teams[winner].name+
+" wins +3 points"
+
+);
+
+
+}
+
+
+
+
+
+
+
+
+
+// ADD MATCH BUTTON
+
+
+let matchBtn=
+document.createElement("button");
+
+
+
+matchBtn.innerHTML=
+
+"⚽ Simulate Match";
+
+
+
+matchBtn.style.marginLeft="15px";
+
+
+
+document.querySelector(".header")
+.appendChild(matchBtn);
+
+
+
+
+matchBtn.onclick=
+
+simulateMatch;
+
+
+
+
+
+
+
+
+
+// AI COMPETITION REPORT
+
+
+function competitionAI(){
+
+
+
+let leader=
+teams[0];
+
+
+
+alert(
+
+`
+🤖 RFDMS AI COMPETITION REPORT
+
+
+Current Leader:
+
+${leader.name}
+
+
+Points:
+
+${leader.points}
+
+
+Analysis:
+
+✅ Competition is balanced
+
+✅ Title race is active
+
+✅ Performance tracking enabled
+
+
+Recommendation:
+
+Monitor top teams closely.
+
+`
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+// AI BUTTON
+
+
+let aiBtn=
+document.createElement("button");
+
+
+
+aiBtn.innerHTML=
+
+"🤖 AI Competition Analysis";
+
+
+
+aiBtn.style.marginTop="25px";
+
+
+
+document.querySelector(".panel")
+.appendChild(aiBtn);
+
+
+
+
+
+aiBtn.onclick=
+competitionAI;
+
+
+
+
+
+
+
+
+// LIVE COUNTER ANIMATION
+
+
+function animateNumbers(){
+
+
+let numbers=
+document.querySelectorAll(".card h1");
+
+
+
+numbers.forEach(num=>{
+
+
+let value=
+parseInt(
+num.innerHTML
+);
+
+
+
+let count=0;
+
+
+
+let timer=setInterval(()=>{
+
+
+count+=Math.ceil(value/30);
+
+
+
+if(count>=value){
+
+count=value;
+
+clearInterval(timer);
+
+}
+
+
+
+num.innerHTML=count;
+
+
+},40);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+// FIXTURE ADD SYSTEM
+
+
+function addFixture(){
+
+
+
+let table=
+document.querySelectorAll("table")[1];
+
+
+
+let row=
+table.insertRow();
+
+
+
+row.innerHTML=
+
+`
+
+<td>
+
+New Date
+
+</td>
+
+
+<td>
+
+New Team vs New Team
+
+</td>
+
+
+<td>
+
+-
+
+</td>
+
+
+`;
+
+
+
+}
+
+
+
+
+
+
+let fixtureBtn=
+document.createElement("button");
+
+
+
+fixtureBtn.innerHTML=
+
+"➕ Add Fixture";
+
+
+
+fixtureBtn.style.marginTop="20px";
+
+
+
+document.querySelectorAll(".panel")[2]
+.appendChild(fixtureBtn);
+
+
+
+fixtureBtn.onclick=
+addFixture;
+
+
+
+
+
+
+
+
+
+window.onload=function(){
+
+
+animateNumbers();
+
+
+updateTable();
+
+
+};
+
+
+
+</script>
 </body>
 
 </html>
