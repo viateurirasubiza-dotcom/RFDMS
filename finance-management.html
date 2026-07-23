@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>RFDMS | Finance Management System</title>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+
+}
+
+
+body{
+
+background:
+radial-gradient(circle,#14532d,#020617);
+
+color:white;
+
+padding:25px;
+
+}
+
+
+
+
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:
+
+rgba(255,255,255,.08);
+
+padding:25px;
+
+border-radius:25px;
+
+backdrop-filter:blur(20px);
+
+}
+
+
+
+.logo{
+
+font-size:32px;
+
+font-weight:900;
+
+}
+
+
+.logo span{
+
+color:#22c55e;
+
+}
+
+
+
+.ai{
+
+background:#22c55e;
+
+color:#020617;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+}
+
+
+
+
+.dashboard{
+
+
+margin-top:30px;
+
+
+display:grid;
+
+
+grid-template-columns:2fr 1fr;
+
+
+gap:25px;
+
+
+}
+
+
+
+
+
+.panel{
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+padding:30px;
+
+
+border-radius:30px;
+
+
+}
+
+
+
+.panel h2{
+
+
+color:#22c55e;
+
+
+margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+
+.cards{
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(180px,1fr));
+
+
+gap:20px;
+
+
+}
+
+
+
+.card{
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+padding:25px;
+
+
+border-radius:20px;
+
+
+text-align:center;
+
+
+}
+
+
+
+.card i{
+
+
+font-size:35px;
+
+
+color:#22c55e;
+
+
+}
+
+
+
+.card h1{
+
+
+margin:15px 0;
+
+
+}
+
+
+
+
+
+
+
+.metric{
+
+
+display:flex;
+
+
+justify-content:space-between;
+
+
+padding:15px;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border-radius:15px;
+
+
+margin-bottom:12px;
+
+
+}
+
+
+
+
+.value{
+
+
+color:#22c55e;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+
+.transaction{
+
+
+padding:18px;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border-radius:18px;
+
+
+margin-bottom:15px;
+
+
+display:flex;
+
+
+justify-content:space-between;
+
+
+}
+
+
+
+
+
+.income{
+
+color:#22c55e;
+
+}
+
+
+
+.expense{
+
+color:#ef4444;
+
+}
+
+
+
+
+
+.bar{
+
+
+height:14px;
+
+
+background:#334155;
+
+
+border-radius:20px;
+
+
+margin:12px 0;
+
+
+}
+
+
+
+.bar div{
+
+
+height:100%;
+
+
+background:#22c55e;
+
+
+border-radius:20px;
+
+
+}
+
+
+
+
+
+.ai-box{
+
+
+background:
+
+rgba(34,197,94,.15);
+
+
+padding:25px;
+
+
+border-radius:25px;
+
+
+margin-top:25px;
+
+
+}
+
+
+
+
+
+button{
+
+
+width:100%;
+
+
+padding:15px;
+
+
+border:none;
+
+
+border-radius:30px;
+
+
+background:#22c55e;
+
+
+font-weight:bold;
+
+
+margin-top:20px;
+
+
+}
+
+
+
+
+@media(max-width:900px){
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<div class="header">
+
+
+<div class="logo">
+
+💰⚽
+
+<span>RFDMS Finance ERP</span>
+
+</div>
+
+
+<div class="ai">
+
+FINANCE AI ACTIVE
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="dashboard">
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+🏢 Club Financial Overview
+
+</h2>
+
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<i class="fa fa-wallet"></i>
+
+<h1>
+
+850M
+
+</h1>
+
+Balance RWF
+
+</div>
+
+
+
+
+<div class="card">
+
+<i class="fa fa-arrow-up"></i>
+
+<h1>
+
+1.5B
+
+</h1>
+
+Income
+
+</div>
+
+
+
+
+<div class="card">
+
+<i class="fa fa-arrow-down"></i>
+
+<h1>
+
+650M
+
+</h1>
+
+Expenses
+
+</div>
+
+
+
+
+<div class="card">
+
+<i class="fa fa-chart-line"></i>
+
+<h1>
+
+92%
+
+</h1>
+
+Health
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<h2 style="margin-top:35px">
+
+💳 Recent Transactions
+
+</h2>
+
+
+
+<div class="transaction">
+
+Player Salary - Viateur
+
+<span class="expense">
+
+-2,000,000 RWF
+
+</span>
+
+</div>
+
+
+
+<div class="transaction">
+
+Sponsor Payment
+
+<span class="income">
+
++150,000,000 RWF
+
+</span>
+
+</div>
+
+
+
+
+<div class="transaction">
+
+Ticket Revenue
+
+<span class="income">
+
++45,000,000 RWF
+
+</span>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+🤖 AI Financial Analysis
+
+</h2>
+
+
+
+
+Revenue Growth
+
+
+<div class="bar">
+
+<div style="width:85%"></div>
+
+</div>
+
+
+
+
+Budget Control
+
+
+<div class="bar">
+
+<div style="width:90%"></div>
+
+</div>
+
+
+
+
+Investment Level
+
+
+<div class="bar">
+
+<div style="width:78%"></div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="ai-box">
+
+
+🤖 AI Recommendation
+
+
+<br><br>
+
+
+✅ Increase youth academy investment
+
+<br>
+
+✅ Reduce unnecessary expenses
+
+<br>
+
+✅ Improve sponsorship strategy
+
+<br>
+
+✅ Financial status: Stable
+
+
+</div>
+
+
+
+
+
+<button>
+
++ Create Financial Report
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel" style="margin-top:30px;">
+
+
+<h2>
+
+📑 Financial Categories
+
+</h2>
+
+
+
+<div class="metric">
+
+Player Salaries
+
+<span class="value">
+
+350M RWF
+
+</span>
+
+</div>
+
+
+
+<div class="metric">
+
+Transfer Fees
+
+<span class="value">
+
+200M RWF
+
+</span>
+
+</div>
+
+
+
+<div class="metric">
+
+Sponsors
+
+<span class="value">
+
+500M RWF
+
+</span>
+
+</div>
+
+
+
+<div class="metric">
+
+Ticket Sales
+
+<span class="value">
+
+300M RWF
+
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
