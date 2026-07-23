@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+RFDMS | FERWAFA Command Center PRO
+</title>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+background:
+linear-gradient(135deg,#020617,#052e16,#020617);
+
+color:white;
+
+min-height:100vh;
+
+}
+
+
+
+/* SIDEBAR */
+
+.sidebar{
+
+position:fixed;
+
+width:280px;
+
+height:100vh;
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+padding:25px;
+
+border-right:
+1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.logo{
+
+font-size:32px;
+
+font-weight:900;
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+
+.logo span{
+
+color:#22c55e;
+
+}
+
+
+
+.menu a{
+
+display:flex;
+
+gap:15px;
+
+align-items:center;
+
+padding:15px;
+
+margin:10px 0;
+
+border-radius:15px;
+
+color:white;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+
+
+.menu a:hover{
+
+background:#22c55e;
+
+color:#020617;
+
+transform:translateX(8px);
+
+}
+
+
+
+
+
+/* MAIN */
+
+.main{
+
+margin-left:280px;
+
+padding:30px;
+
+}
+
+
+
+
+.header{
+
+background:
+
+rgba(255,255,255,.08);
+
+padding:25px;
+
+border-radius:30px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+backdrop-filter:blur(20px);
+
+}
+
+
+
+.admin{
+
+display:flex;
+
+gap:15px;
+
+align-items:center;
+
+}
+
+
+
+.avatar{
+
+width:60px;
+
+height:60px;
+
+background:#22c55e;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:30px;
+
+color:#020617;
+
+}
+
+
+
+
+
+/* CARDS */
+
+
+.cards{
+
+margin-top:30px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:
+
+rgba(255,255,255,.08);
+
+padding:30px;
+
+border-radius:25px;
+
+}
+
+
+
+.card i{
+
+font-size:40px;
+
+color:#22c55e;
+
+}
+
+
+
+.card h2{
+
+font-size:40px;
+
+margin:15px 0;
+
+}
+
+
+
+
+
+
+/* ANALYTICS */
+
+
+.analytics{
+
+margin-top:40px;
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:25px;
+
+}
+
+
+
+.box{
+
+background:
+
+rgba(255,255,255,.08);
+
+padding:30px;
+
+border-radius:30px;
+
+}
+
+
+
+.box h2{
+
+color:#22c55e;
+
+margin-bottom:20px;
+
+}
+
+
+
+
+
+/* TABLE */
+
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+
+
+th,td{
+
+padding:15px;
+
+border-bottom:
+
+1px solid rgba(255,255,255,.1);
+
+text-align:left;
+
+}
+
+
+.status{
+
+background:#22c55e;
+
+color:#020617;
+
+padding:5px 15px;
+
+border-radius:20px;
+
+}
+
+
+
+
+button{
+
+background:#22c55e;
+
+border:none;
+
+padding:15px 25px;
+
+border-radius:25px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+
+@media(max-width:900px){
+
+.sidebar{
+
+position:relative;
+
+width:100%;
+
+height:auto;
+
+}
+
+
+.main{
+
+margin-left:0;
+
+}
+
+
+.analytics{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+
+<div class="logo">
+
+🇷🇼⚽
+
+<span>
+RFDMS
+</span>
+
+</div>
+
+
+
+<div class="menu">
+
+
+<a href="dashboard.html">
+<i class="fa fa-home"></i>
+Dashboard
+</a>
+
+
+<a href="players.html">
+<i class="fa fa-users"></i>
+Players
+</a>
+
+
+<a href="clubs.html">
+<i class="fa fa-shield"></i>
+Clubs
+</a>
+
+
+<a href="competitions.html">
+<i class="fa fa-trophy"></i>
+Competitions
+</a>
+
+
+<a href="transfers.html">
+<i class="fa fa-right-left"></i>
+Transfers
+</a>
+
+
+<a href="finance.html">
+<i class="fa fa-money-bill"></i>
+Finance
+</a>
+
+
+<a href="ai-analysis.html">
+<i class="fa fa-brain"></i>
+AI Analytics
+</a>
+
+
+<a href="settings.html">
+<i class="fa fa-gear"></i>
+Settings
+</a>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+
+
+<div class="header">
+
+
+<div>
+
+<h1>
+FERWAFA Command Center
+</h1>
+
+<p>
+National Football Administration
+</p>
+
+</div>
+
+
+
+<div class="admin">
+
+
+<div class="avatar">
+👤
+</div>
+
+
+<div>
+
+<b>
+Super Admin
+</b>
+
+<br>
+
+FERWAFA Rwanda
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- STATISTICS -->
+
+<div class="cards">
+
+
+<div class="card">
+
+<i class="fa fa-building"></i>
+
+<h2 id="clubs">
+42
+</h2>
+
+<p>
+Registered Clubs
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa fa-users"></i>
+
+<h2 id="players">
+5200
+</h2>
+
+<p>
+Players Database
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa fa-futbol"></i>
+
+<h2>
+350
+</h2>
+
+<p>
+Matches
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa fa-trophy"></i>
+
+<h2>
+18
+</h2>
+
+<p>
+Competitions
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ANALYTICS -->
+
+
+<div class="analytics">
+
+
+
+<div class="box">
+
+
+<h2>
+Football Growth Analytics
+</h2>
+
+
+<canvas id="footballChart"></canvas>
+
+
+</div>
+
+
+
+
+
+
+<div class="box">
+
+
+<h2>
+System Status
+</h2>
+
+
+
+<p>
+🟢 Database Online
+</p>
+
+
+<br>
+
+
+<p>
+🟢 AI Engine Active
+</p>
+
+
+<br>
+
+
+<p>
+🟢 Transfer System Running
+</p>
+
+
+<br>
+
+
+<button onclick="runAI()">
+
+🤖 Run AI Scan
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- ACTIVITIES -->
+
+
+<div class="box" style="margin-top:30px">
+
+
+<h2>
+Latest Activities
+</h2>
+
+
+<table>
+
+
+<tr>
+
+<th>
+Activity
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+APR FC Player Registration
+</td>
+
+<td>
+<span class="status">
+Approved
+</span>
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Transfer Request
+</td>
+
+<td>
+<span class="status">
+Pending
+</span>
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+League Fixture Created
+</td>
+
+<td>
+<span class="status">
+Active
+</span>
+</td>
+
+</tr>
+
+
+
+</table>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+// CHART
+
+
+new Chart(
+document.getElementById("footballChart"),
+
+{
+
+type:"line",
+
+data:{
+
+
+labels:[
+"Jan",
+"Feb",
+"Mar",
+"Apr",
+"May",
+"Jun"
+],
+
+
+datasets:[{
+
+label:"Registered Players",
+
+data:[
+3000,
+3500,
+3900,
+4300,
+4800,
+5200
+]
+
+
+}]
+
+
+}
+
+
+}
+
+);
+
+
+
+
+
+function runAI(){
+
+alert(
+
+"🤖 RFDMS AI SCAN\n\n"+
+"Players analyzed: 5200\n"+
+"Club performance calculated\n"+
+"Talent scouting completed"
+
+);
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
