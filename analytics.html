@@ -782,7 +782,395 @@ midfield role.
 
 
 </div>
+<script>
 
+
+// ================================
+// RFDMS AI ANALYTICS ENGINE
+// ================================
+
+
+const players=[
+
+{
+name:"Viateur Irasubiza",
+position:"Midfielder",
+speed:87,
+passing:91,
+fitness:85,
+decision:89
+},
+
+
+{
+name:"Patrick N.",
+position:"Forward",
+speed:90,
+passing:82,
+fitness:88,
+decision:85
+},
+
+
+{
+name:"Jean Claude",
+position:"Defender",
+speed:78,
+passing:80,
+fitness:92,
+decision:88
+}
+
+];
+
+
+
+
+
+// AI PERFORMANCE CALCULATION
+
+function calculateScore(player){
+
+
+let score=
+
+(
+player.speed+
+player.passing+
+player.fitness+
+player.decision
+
+)/4;
+
+
+return Math.round(score);
+
+
+}
+
+
+
+
+
+// UPDATE PLAYER SCORES
+
+
+function updatePlayers(){
+
+
+let cards=document.querySelectorAll(".player");
+
+
+players.forEach((player,index)=>{
+
+
+let score=
+calculateScore(player);
+
+
+
+cards[index].querySelector(".score")
+.innerHTML=
+
+score+"%";
+
+
+
+});
+
+
+
+}
+
+
+
+
+// ANIMATE AI BARS
+
+
+function animateBars(){
+
+
+let bars=document.querySelectorAll(".bar div");
+
+
+
+bars.forEach(bar=>{
+
+
+let width=
+bar.style.width;
+
+
+
+bar.style.width="0%";
+
+
+
+setTimeout(()=>{
+
+
+bar.style.transition="2s";
+
+bar.style.width=width;
+
+
+},300);
+
+
+
+});
+
+
+}
+
+
+
+
+
+// AI SCOUT ENGINE
+
+
+function aiScout(){
+
+
+let player=
+players[0];
+
+
+
+let score=
+calculateScore(player);
+
+
+
+let position="";
+
+
+
+if(player.passing>88 && player.decision>85){
+
+position="CREATIVE MIDFIELDER";
+
+}
+
+else if(player.speed>88){
+
+position="WINGER / FORWARD";
+
+}
+
+else{
+
+position="DEFENSIVE PLAYER";
+
+}
+
+
+
+
+document.querySelector(".recommend")
+.innerHTML=
+
+
+`
+
+<h3>
+
+🤖 AI SCOUT RESULT
+
+</h3>
+
+
+<br>
+
+
+<h2>
+
+${position}
+
+</h2>
+
+
+<br>
+
+
+<p>
+
+Player:
+
+<b>${player.name}</b>
+
+
+<br><br>
+
+
+Overall Performance:
+
+<b>${score}%</b>
+
+
+<br><br>
+
+
+Analysis:
+
+Excellent technical ability,
+
+good decision making and tactical intelligence.
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+
+
+
+// LIVE AI ENGINE
+
+
+function liveAnalysis(){
+
+
+let accuracy=
+
+Math.floor(Math.random()*5)+95;
+
+
+
+let analysed=
+
+Math.floor(Math.random()*500)+5000;
+
+
+
+let matches=
+
+Math.floor(Math.random()*200)+1200;
+
+
+
+let talent=
+
+Math.floor(Math.random()*50)+300;
+
+
+
+
+let stats=document.querySelectorAll(".card h1");
+
+
+
+stats[0].innerHTML=
+
+accuracy+"%";
+
+
+
+stats[1].innerHTML=
+
+analysed+"+";
+
+
+
+stats[2].innerHTML=
+
+matches;
+
+
+
+stats[3].innerHTML=
+
+talent;
+
+
+
+}
+
+
+
+
+
+
+
+
+// CREATE AI BUTTON
+
+
+let button=document.createElement("button");
+
+
+button.innerHTML=
+
+"🤖 Run AI Scouting Analysis";
+
+
+button.style.marginTop="20px";
+
+button.style.padding="15px 25px";
+
+button.style.border="none";
+
+button.style.borderRadius="25px";
+
+button.style.background="#22c55e";
+
+button.style.fontWeight="bold";
+
+button.style.cursor="pointer";
+
+
+
+document.querySelector(".recommend")
+.appendChild(button);
+
+
+
+button.onclick=function(){
+
+
+aiScout();
+
+
+liveAnalysis();
+
+
+animateBars();
+
+
+};
+
+
+
+
+
+
+
+// START SYSTEM
+
+
+window.onload=function(){
+
+
+updatePlayers();
+
+
+animateBars();
+
+
+};
+
+
+
+
+
+</script>
 
 
 
