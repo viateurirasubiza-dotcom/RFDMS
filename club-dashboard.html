@@ -844,7 +844,372 @@ Fitness
 
 
 </div>
+<script>
 
+
+// ===============================
+// RFDMS CLUB DASHBOARD JS ENGINE
+// ===============================
+
+
+
+// CLUB DATA
+
+let clubData={
+
+players:35,
+
+wins:15,
+
+goals:40,
+
+performance:87,
+
+budget:850000000
+
+};
+
+
+
+
+
+
+// LIVE CLOCK
+
+function updateClock(){
+
+
+let now=new Date();
+
+
+let time=
+now.toLocaleTimeString();
+
+
+let clock=document.createElement("p");
+
+
+clock.innerHTML=
+"🕒 "+time;
+
+
+clock.style.marginTop="10px";
+
+
+clock.style.color="#22c55e";
+
+
+
+let header=document.querySelector(".header div:last-child");
+
+
+let old=document.getElementById("clock");
+
+
+if(old){
+
+old.remove();
+
+}
+
+
+clock.id="clock";
+
+
+header.appendChild(clock);
+
+
+}
+
+
+
+setInterval(updateClock,1000);
+
+
+
+
+
+
+
+// ANIMATE PERFORMANCE BARS
+
+
+function animateBars(){
+
+
+let bars=document.querySelectorAll(".progress div");
+
+
+bars.forEach(bar=>{
+
+
+let value=
+bar.style.width;
+
+
+bar.style.width="0%";
+
+
+setTimeout(()=>{
+
+
+bar.style.transition="2s";
+
+
+bar.style.width=value;
+
+
+},300);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+// PLAYER RANKING AI
+
+
+function analyzePlayers(){
+
+
+let players=[
+
+
+{
+name:"Viateur",
+score:91
+},
+
+
+{
+name:"Jean Claude",
+score:88
+},
+
+
+{
+name:"Patrick",
+score:84
+}
+
+
+];
+
+
+
+players.sort((a,b)=>
+b.score-a.score);
+
+
+
+console.log(
+
+"AI Ranking",
+
+players
+
+);
+
+
+
+alert(
+
+`
+🤖 RFDMS AI REPORT
+
+Top Player:
+
+${players[0].name}
+
+Performance:
+
+${players[0].score}%
+
+
+Recommendation:
+
+Increase tactical training.
+
+`
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ADD AI BUTTON
+
+
+let aiButton=document.createElement("button");
+
+
+aiButton.innerHTML=
+
+"🤖 Run Club AI Analysis";
+
+
+aiButton.style.marginTop="25px";
+
+aiButton.style.padding="15px 25px";
+
+aiButton.style.border="none";
+
+aiButton.style.borderRadius="25px";
+
+aiButton.style.background="#22c55e";
+
+aiButton.style.fontWeight="bold";
+
+aiButton.style.cursor="pointer";
+
+
+
+
+document.querySelector(".panel:last-child")
+.appendChild(aiButton);
+
+
+
+
+
+aiButton.onclick=function(){
+
+
+analyzePlayers();
+
+
+clubReport();
+
+
+};
+
+
+
+
+
+
+
+
+
+// CLUB AI REPORT
+
+
+function clubReport(){
+
+
+let status="";
+
+
+
+if(clubData.performance>=85){
+
+status="Excellent Team Form 🔥";
+
+}
+
+else{
+
+status="Needs Improvement";
+
+}
+
+
+
+console.log(
+
+`
+RFDMS CLUB AI
+
+Club: APR FC
+
+Players:
+${clubData.players}
+
+Goals:
+${clubData.goals}
+
+Performance:
+${clubData.performance}%
+
+
+Status:
+${status}
+
+`
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// TRAINING ALERT
+
+
+setTimeout(()=>{
+
+
+console.log(
+
+"⚽ Training session starts tomorrow 08:00 AM"
+
+);
+
+
+},2000);
+
+
+
+
+
+
+
+
+
+// INITIALIZE
+
+
+window.onload=function(){
+
+
+animateBars();
+
+
+clubReport();
+
+
+};
+
+
+
+
+</script>
 
 </body>
 
