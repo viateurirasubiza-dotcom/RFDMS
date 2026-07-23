@@ -705,7 +705,454 @@ Low
 
 
 
+<script>
 
+
+// =====================================
+// RFDMS FITNESS AI ENGINE
+// =====================================
+
+
+
+let playerFitness = {
+
+
+name:"Viateur Irasubiza",
+
+club:"APR FC",
+
+position:"Midfielder",
+
+fitness:88,
+
+speed:34,
+
+distance:11.2,
+
+strength:85,
+
+endurance:92
+
+
+};
+
+
+
+
+
+
+// =====================================
+// FITNESS SCORE ANIMATION
+// =====================================
+
+
+
+function animateFitness(){
+
+
+let score=
+
+document.querySelector(".fitness");
+
+
+let target=
+
+parseInt(score.innerHTML);
+
+
+
+let count=0;
+
+
+let timer=setInterval(()=>{
+
+
+count++;
+
+
+score.innerHTML=count+"%";
+
+
+
+if(count>=target){
+
+clearInterval(timer);
+
+}
+
+
+
+},20);
+
+
+
+}
+
+
+
+
+
+// =====================================
+// AI FITNESS ANALYSIS
+// =====================================
+
+
+
+function runFitnessAI(){
+
+
+
+let fitness=
+
+Math.floor(Math.random()*10)+85;
+
+
+
+let injury;
+
+
+
+if(fitness>=90){
+
+injury="Very Low 🟢";
+
+}
+
+else if(fitness>=80){
+
+injury="Low 🟢";
+
+}
+
+else if(fitness>=70){
+
+injury="Medium 🟡";
+
+}
+
+else{
+
+injury="High 🔴";
+
+}
+
+
+
+
+let advice=[
+
+
+"Increase sprint training ⚡",
+
+"Improve recovery sessions 💤",
+
+"Maintain current workload 💪",
+
+"Add strength exercises 🏋️",
+
+"Improve agility drills 🏃"
+
+
+];
+
+
+
+let recommendation=
+
+advice[
+Math.floor(Math.random()*advice.length)
+];
+
+
+
+
+document.querySelector(".ai-box").innerHTML=
+
+
+`
+
+🤖 <b>AI FITNESS REPORT</b>
+
+<br><br>
+
+
+Player:
+
+${playerFitness.name}
+
+
+<br><br>
+
+
+Fitness Score:
+
+
+<h1 style="color:#22c55e">
+
+${fitness}%
+
+</h1>
+
+
+
+<br>
+
+
+Injury Risk:
+
+${injury}
+
+
+<br><br>
+
+
+Recommendation:
+
+
+<br>
+
+✅ ${recommendation}
+
+
+<br><br>
+
+
+Status:
+
+🟢 Player Ready
+
+
+`;
+
+
+
+}
+
+
+
+
+
+
+
+// =====================================
+// CREATE AI BUTTON
+// =====================================
+
+
+
+let button=document.createElement("button");
+
+
+button.innerHTML=
+
+"🤖 Run Fitness AI Scan";
+
+
+
+button.style.width="100%";
+
+button.style.padding="15px";
+
+button.style.marginTop="20px";
+
+button.style.border="none";
+
+button.style.borderRadius="25px";
+
+button.style.background="#22c55e";
+
+button.style.fontWeight="bold";
+
+button.style.cursor="pointer";
+
+
+
+
+
+document.querySelector(".panel:last-child")
+
+.appendChild(button);
+
+
+
+
+button.onclick=
+
+runFitnessAI;
+
+
+
+
+
+
+
+// =====================================
+// AUTO PERFORMANCE UPDATE
+// =====================================
+
+
+
+setInterval(()=>{
+
+
+let bars=
+
+document.querySelectorAll(".bar div");
+
+
+
+bars.forEach(bar=>{
+
+
+let value=
+
+Math.floor(Math.random()*10)+85;
+
+
+bar.style.width=value+"%";
+
+
+});
+
+
+
+},4000);
+
+
+
+
+
+
+
+
+// =====================================
+// TRAINING LOAD CLICK SYSTEM
+// =====================================
+
+
+
+document.querySelectorAll(".metric")
+.forEach(metric=>{
+
+
+metric.onclick=function(){
+
+
+this.style.background="#22c55e";
+
+
+this.style.color="#020617";
+
+
+
+setTimeout(()=>{
+
+
+this.style.background=
+
+"rgba(255,255,255,.08)";
+
+
+this.style.color="white";
+
+
+},1200);
+
+
+
+};
+
+
+
+});
+
+
+
+
+
+
+
+// =====================================
+// SAVE FITNESS DATABASE
+// =====================================
+
+
+
+localStorage.setItem(
+
+"RFDMS_PLAYER_FITNESS",
+
+JSON.stringify(playerFitness)
+
+);
+
+
+
+
+
+
+
+
+// =====================================
+// LOAD FITNESS DATA
+// =====================================
+
+
+
+function loadFitness(){
+
+
+let data=
+
+JSON.parse(
+
+localStorage.getItem(
+"RFDMS_PLAYER_FITNESS"
+)
+
+);
+
+
+
+if(data){
+
+
+console.log(
+
+"Fitness Data Loaded",
+
+data
+
+);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+window.onload=function(){
+
+
+animateFitness();
+
+
+loadFitness();
+
+
+};
+
+
+
+
+
+</script>
 
 
 </body>
