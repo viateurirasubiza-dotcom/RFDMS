@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>RFDMS | AI Match Simulation Engine</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+background:
+radial-gradient(circle,#14532d,#020617);
+
+color:white;
+
+padding:25px;
+
+}
+
+
+/* HEADER */
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:
+rgba(255,255,255,.08);
+
+padding:25px;
+
+border-radius:25px;
+
+}
+
+
+.logo{
+
+font-size:32px;
+
+font-weight:900;
+
+}
+
+
+.logo span{
+
+color:#22c55e;
+
+}
+
+
+.ai{
+
+background:#22c55e;
+
+color:#020617;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+}
+
+
+
+/* GRID */
+
+
+.dashboard{
+
+margin-top:30px;
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:25px;
+
+}
+
+
+
+/* FIELD */
+
+
+.pitch{
+
+height:600px;
+
+background:
+linear-gradient(#16a34a,#15803d);
+
+border:5px solid white;
+
+border-radius:30px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.pitch:before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+height:100%;
+
+width:3px;
+
+background:white;
+
+}
+
+
+
+.circle{
+
+position:absolute;
+
+width:130px;
+
+height:130px;
+
+border:3px solid white;
+
+border-radius:50%;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+}
+
+
+
+
+.team{
+
+position:absolute;
+
+font-size:30px;
+
+font-weight:bold;
+
+}
+
+
+
+.home{
+
+left:15%;
+
+top:45%;
+
+}
+
+
+
+.away{
+
+right:15%;
+
+top:45%;
+
+}
+
+
+
+
+.ball{
+
+width:35px;
+
+height:35px;
+
+background:white;
+
+border-radius:50%;
+
+position:absolute;
+
+top:50%;
+
+left:40%;
+
+animation:pass 3s infinite;
+
+}
+
+
+
+@keyframes pass{
+
+50%{
+
+left:70%;
+
+}
+
+}
+
+
+
+/* SCORE */
+
+
+.score{
+
+position:absolute;
+
+top:10%;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:70px;
+
+font-weight:900;
+
+color:#22c55e;
+
+}
+
+
+
+
+
+/* PANELS */
+
+
+.panel{
+
+background:
+rgba(255,255,255,.08);
+
+padding:25px;
+
+border-radius:30px;
+
+}
+
+
+
+.panel h2{
+
+color:#22c55e;
+
+margin-bottom:20px;
+
+}
+
+
+
+.card{
+
+background:
+rgba(255,255,255,.08);
+
+padding:18px;
+
+border-radius:18px;
+
+margin-bottom:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+
+
+.value{
+
+color:#22c55e;
+
+font-weight:bold;
+
+}
+
+
+
+/* BARS */
+
+
+.bar{
+
+height:15px;
+
+background:#334155;
+
+border-radius:20px;
+
+margin:10px 0;
+
+}
+
+
+.bar div{
+
+height:100%;
+
+background:#22c55e;
+
+border-radius:20px;
+
+}
+
+
+
+
+
+/* EVENTS */
+
+
+.event{
+
+padding:15px;
+
+border-left:3px solid #22c55e;
+
+margin:15px;
+
+}
+
+
+
+/* PLAYER */
+
+
+.player{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:12px;
+
+background:
+rgba(255,255,255,.05);
+
+border-radius:15px;
+
+}
+
+
+
+button{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:30px;
+
+background:#22c55e;
+
+font-weight:bold;
+
+margin-top:15px;
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="header">
+
+
+<div class="logo">
+
+🤖⚽
+
+<span>RFDMS AI MATCH SIMULATION</span>
+
+</div>
+
+
+<div class="ai">
+
+AI ENGINE ONLINE
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="dashboard">
+
+
+
+
+
+<div class="pitch">
+
+
+<div class="circle"></div>
+
+
+<div class="score">
+
+2 - 1
+
+</div>
+
+
+
+<div class="team home">
+
+🇷🇼 APR FC
+
+</div>
+
+
+
+<div class="team away">
+
+⚽ Rayon Sports
+
+</div>
+
+
+<div class="ball"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+🏆 Team Analysis
+
+</h2>
+
+
+<div class="card">
+
+Formation
+
+<span class="value">
+
+4-3-3
+
+</span>
+
+</div>
+
+
+<div class="card">
+
+Opponent Formation
+
+<span class="value">
+
+4-2-3-1
+
+</span>
+
+</div>
+
+
+
+<div class="card">
+
+Possession Prediction
+
+<span class="value">
+
+APR 58%
+
+</span>
+
+</div>
+
+
+
+<div class="card">
+
+Goal Probability
+
+<span class="value">
+
+67%
+
+</span>
+
+</div>
+
+
+
+
+<h2>
+
+⚔ Strength Analysis
+
+</h2>
+
+
+Attack
+
+
+<div class="bar">
+
+<div style="width:90%"></div>
+
+</div>
+
+
+
+Defense
+
+
+<div class="bar">
+
+<div style="width:82%"></div>
+
+</div>
+
+
+
+Midfield
+
+
+<div class="bar">
+
+<div style="width:88%"></div>
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel" style="margin-top:30px;">
+
+
+<h2>
+
+🤖 AI Tactical Outcome
+
+</h2>
+
+
+
+<div class="event">
+
+Minute 23'
+
+<br>
+
+⚽ High attacking pressure detected
+
+</div>
+
+
+
+<div class="event">
+
+Minute 54'
+
+<br>
+
+🎯 Goal probability increased
+
+</div>
+
+
+
+
+<div class="event">
+
+Minute 78'
+
+<br>
+
+🧠 AI recommends defensive control
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel" style="margin-top:30px;">
+
+
+<h2>
+
+⭐ Player Impact Score
+
+</h2>
+
+
+
+
+<div class="player">
+
+Viateur (CAM)
+
+<span class="value">
+
+92%
+
+</span>
+
+</div>
+
+
+
+<br>
+
+
+
+<div class="player">
+
+Patrick (ST)
+
+<span class="value">
+
+89%
+
+</span>
+
+</div>
+
+
+
+<br>
+
+
+<div class="player">
+
+Jean (CB)
+
+<span class="value">
+
+86%
+
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel" style="margin-top:30px;">
+
+
+<h2>
+
+🤖 AI Match Prediction
+
+</h2>
+
+
+<p>
+
+APR FC has higher winning probability based on:
+
+</p>
+
+
+<br>
+
+
+<p>
+
+✅ Better possession control
+
+<br>
+
+✅ Strong midfield
+
+<br>
+
+✅ Higher attacking efficiency
+
+<br>
+
+✅ Defensive stability
+
+</p>
+
+
+
+<button>
+
+▶ RUN NEW SIMULATION
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
