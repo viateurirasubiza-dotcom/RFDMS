@@ -960,14 +960,15 @@ MODULES SECTION
 
 <section class="modules" id="modules">
 
+<div class="title-container">
 
-<h1 class="section-title">
+<h1 class="moving-title">
 
-RFDMS Powerful Football Modules
+🇷🇼 RWANDAN FOOTBALL MONITORING SYSTEM • AI POWERED • FERWAFA • CLUBS • PLAYERS • COMPETITIONS • LIVE ANALYTICS • 🇷🇼
 
 </h1>
 
-
+</div>
 
 
 <div class="module-grid">
@@ -2108,7 +2109,57 @@ color:#22c55e;
 
 }
 
+/* ==========================
+MOVING TITLE
+========================== */
 
+.title-container{
+
+width:100%;
+overflow:hidden;
+padding:20px 0;
+margin:40px 0;
+background:rgba(255,255,255,.08);
+border-top:2px solid #22c55e;
+border-bottom:2px solid #22c55e;
+border-radius:20px;
+backdrop-filter:blur(20px);
+
+}
+
+.moving-title{
+
+display:inline-block;
+white-space:nowrap;
+font-size:42px;
+font-weight:900;
+color:#22c55e;
+text-shadow:
+0 0 10px #22c55e,
+0 0 20px #22c55e,
+0 0 40px #22c55e;
+padding-left:100%;
+animation:marquee 18s linear infinite;
+
+}
+
+@keyframes marquee{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-100%);
+}
+
+}
+
+.title-container:hover .moving-title{
+
+animation-play-state:paused;
+
+}
 </style>
 <script>
 
@@ -2424,7 +2475,22 @@ alert(
 }
 
 
+<script>
 
+setInterval(()=>{
+
+const title=document.querySelector(".moving-title");
+
+title.style.textShadow=
+`
+0 0 ${10+Math.random()*10}px #22c55e,
+0 0 ${20+Math.random()*20}px #22c55e,
+0 0 ${40+Math.random()*30}px #22c55e
+`;
+
+},500);
+
+</script>
 
 
 </script>
