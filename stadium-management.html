@@ -780,7 +780,473 @@ Seats Inspection
 </div>
 
 
+<script>
 
+
+// =====================================
+// RFDMS STADIUM MANAGEMENT JS ENGINE
+// =====================================
+
+
+
+// LIVE SYSTEM CLOCK
+
+function liveClock(){
+
+
+let date=new Date();
+
+
+let clock=document.getElementById("clock");
+
+
+if(!clock){
+
+clock=document.createElement("p");
+
+clock.id="clock";
+
+clock.style.position="fixed";
+
+clock.style.top="20px";
+
+clock.style.right="25px";
+
+clock.style.color="#22c55e";
+
+clock.style.fontWeight="bold";
+
+document.body.appendChild(clock);
+
+}
+
+
+clock.innerHTML=
+"🕒 "+date.toLocaleString();
+
+
+
+}
+
+
+setInterval(liveClock,1000);
+
+
+
+
+
+// =====================================
+// STADIUM DATABASE
+// =====================================
+
+
+let stadiumData={
+
+
+name:"Amahoro Stadium",
+
+location:"Kigali Rwanda",
+
+capacity:45000,
+
+rating:95,
+
+pitch:95,
+
+security:90,
+
+fanExperience:94
+
+
+};
+
+
+
+
+
+
+// =====================================
+// ANIMATE NUMBERS
+// =====================================
+
+
+
+function animateNumber(element,target){
+
+
+let count=0;
+
+
+let interval=setInterval(()=>{
+
+
+count+=Math.ceil(target/50);
+
+
+
+if(count>=target){
+
+count=target;
+
+clearInterval(interval);
+
+}
+
+
+
+element.innerHTML=count+"%";
+
+
+
+},30);
+
+
+
+}
+
+
+
+
+
+window.onload=function(){
+
+
+
+let rating=
+
+document.querySelector(".rating");
+
+
+let value=
+
+parseInt(rating.innerHTML);
+
+
+
+rating.innerHTML="0%";
+
+
+animateNumber(rating,value);
+
+
+
+
+};
+
+
+
+
+
+
+
+// =====================================
+// AI VENUE ANALYSIS
+// =====================================
+
+
+
+function runVenueAI(){
+
+
+
+let score=
+
+Math.floor(Math.random()*6)+94;
+
+
+
+let messages=[
+
+
+"Stadium ready for international matches 🏆",
+
+"Increase smart security cameras 📷",
+
+"Improve digital ticket experience 🎟️",
+
+"Pitch maintenance recommended 🌱",
+
+"Fan experience optimization required 👥"
+
+
+];
+
+
+
+let recommendation=
+
+messages[
+Math.floor(Math.random()*messages.length)
+];
+
+
+
+
+let box=document.querySelector(".ai-box");
+
+
+
+box.innerHTML=
+
+`
+
+🤖 <b>AI VENUE REPORT</b>
+
+<br><br>
+
+
+Overall Stadium Score:
+
+<h1 style="color:#22c55e">
+
+${score}%
+
+</h1>
+
+
+<br>
+
+
+Recommendation:
+
+<br>
+
+
+✅ ${recommendation}
+
+
+<br><br>
+
+
+System:
+
+🟢 Operational
+
+
+`;
+
+
+
+}
+
+
+
+
+
+// =====================================
+// ADD AI BUTTON
+// =====================================
+
+
+
+let aiButton=document.createElement("button");
+
+
+aiButton.innerHTML=
+
+"🤖 Run Stadium AI Analysis";
+
+
+
+aiButton.onclick=
+
+runVenueAI;
+
+
+
+document.querySelector(".panel:nth-child(2)")
+.appendChild(aiButton);
+
+
+
+
+
+
+
+// =====================================
+// REGISTER STADIUM
+// =====================================
+
+
+
+let registerBtn=
+
+document.querySelector("button");
+
+
+
+registerBtn.onclick=function(){
+
+
+
+let name=
+
+prompt(
+"Enter Stadium Name:"
+);
+
+
+
+let city=
+
+prompt(
+"Enter Location:"
+);
+
+
+
+
+if(name && city){
+
+
+
+alert(
+
+`
+🏟️ Stadium Registered
+
+Name:
+${name}
+
+Location:
+${city}
+
+
+Status:
+Active
+
+`
+
+);
+
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+// =====================================
+// MAINTENANCE STATUS CLICK
+// =====================================
+
+
+
+document.querySelectorAll(".metric")
+.forEach(item=>{
+
+
+
+item.onclick=function(){
+
+
+this.style.background="#22c55e";
+
+this.style.color="#020617";
+
+
+setTimeout(()=>{
+
+
+this.style.background=
+"rgba(255,255,255,.08)";
+
+
+this.style.color="white";
+
+
+},1500);
+
+
+
+};
+
+
+
+});
+
+
+
+
+
+
+
+// =====================================
+// AUTO AI UPDATE
+// =====================================
+
+
+
+setInterval(()=>{
+
+
+let bars=
+
+document.querySelectorAll(".bar div");
+
+
+
+bars.forEach(bar=>{
+
+
+let value=
+
+Math.floor(Math.random()*10)+90;
+
+
+bar.style.width=value+"%";
+
+
+});
+
+
+
+},5000);
+
+
+
+
+
+
+
+// =====================================
+// STADIUM STORAGE
+// =====================================
+
+
+
+function saveStadium(){
+
+
+localStorage.setItem(
+
+"RFDMS_STADIUM",
+
+JSON.stringify(stadiumData)
+
+);
+
+
+}
+
+
+
+saveStadium();
+
+
+
+
+
+
+
+</script>
 
 
 
