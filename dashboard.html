@@ -4,14 +4,18 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>
 RFDMS | FERWAFA Admin Dashboard
 </title>
 
 
+
 <style>
+
 
 *{
 
@@ -25,20 +29,22 @@ font-family:"Segoe UI",sans-serif;
 
 body{
 
-background:#f1f5f9;
-
+background:#eef2f7;
 display:flex;
 
 }
 
 
-/* SIDEBAR */
+
 
 .sidebar{
 
 width:260px;
 
 height:100vh;
+
+position:fixed;
+
 
 background:
 linear-gradient(
@@ -47,117 +53,85 @@ linear-gradient(
 #0b6623
 );
 
+
 color:white;
 
 padding:25px;
 
-position:fixed;
-
 }
+
+
 
 
 .logo{
 
 text-align:center;
 
-margin-bottom:35px;
+margin-bottom:30px;
 
 }
 
 
 .logo h1{
 
-color:#ffd700;
-
 font-size:35px;
 
-letter-spacing:4px;
-
-}
-
-
-.logo p{
-
-font-size:12px;
+color:#ffd700;
 
 }
 
 
 
-.menu{
-
-margin-top:30px;
-
-}
 
 
 .menu a{
+
 
 display:block;
 
 padding:14px;
 
-margin-bottom:10px;
-
-border-radius:10px;
+margin:8px 0;
 
 color:white;
 
 text-decoration:none;
 
-transition:.3s;
+border-radius:10px;
+
 
 }
+
 
 
 .menu a:hover{
 
-background:rgba(255,255,255,.2);
-
-}
-
-
-
-.logout{
-
-position:absolute;
-
-bottom:30px;
-
-width:80%;
-
-background:#dc2626;
-
-text-align:center;
-
-padding:12px;
-
-border-radius:10px;
+background:
+rgba(255,255,255,.2);
 
 }
 
 
 
 
-/* MAIN */
 
 
 .main{
 
 margin-left:260px;
 
+padding:25px;
+
 width:100%;
 
-padding:25px;
 
 }
 
 
 
-/* HEADER */
-
 
 .header{
+
 
 background:white;
 
@@ -165,49 +139,36 @@ padding:20px;
 
 border-radius:15px;
 
+
 display:flex;
 
 justify-content:space-between;
 
-align-items:center;
 
-box-shadow:0 5px 20px #ddd;
+box-shadow:
+0 5px 20px #ddd;
+
 
 }
 
 
 
-.header h2{
-
-color:#061a40;
-
-}
-
-
-.admin{
-
-font-weight:bold;
-
-color:#0b6623;
-
-}
-
-
-
-
-/* CARDS */
 
 
 .cards{
+
 
 display:grid;
 
 grid-template-columns:
 repeat(4,1fr);
 
+
 gap:20px;
 
+
 margin-top:25px;
+
 
 }
 
@@ -215,57 +176,37 @@ margin-top:25px;
 
 .card{
 
+
 background:white;
 
 padding:25px;
 
 border-radius:15px;
 
+
 box-shadow:
-0 5px 15px #ddd;
+0 5px 20px #ddd;
+
 
 }
 
 
+.card h1{
 
-.card h3{
 
 font-size:35px;
 
 color:#061a40;
 
-}
-
-
-.card p{
-
-margin-top:10px;
-
-color:#555;
 
 }
 
 
 
-/* CONTENT */
 
 
-.content{
+.panel{
 
-display:grid;
-
-grid-template-columns:
-2fr 1fr;
-
-gap:20px;
-
-margin-top:25px;
-
-}
-
-
-
-.box{
 
 background:white;
 
@@ -273,26 +214,63 @@ padding:25px;
 
 border-radius:15px;
 
+margin-top:25px;
+
+
+box-shadow:
+0 5px 20px #ddd;
+
+
 }
+
+
+
+
+
+button{
+
+
+background:#061a40;
+
+color:white;
+
+padding:12px 20px;
+
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+
+}
+
+
+
+button:hover{
+
+
+background:#0b6623;
+
+
+}
+
+
+
 
 
 
 table{
 
+
 width:100%;
 
 border-collapse:collapse;
 
-}
 
+margin-top:20px;
 
-th,td{
-
-padding:12px;
-
-border-bottom:1px solid #ddd;
-
-text-align:center;
 
 }
 
@@ -300,9 +278,26 @@ text-align:center;
 
 th{
 
+
 background:#061a40;
 
 color:white;
+
+
+}
+
+
+td,th{
+
+
+padding:12px;
+
+text-align:center;
+
+
+border-bottom:
+1px solid #ddd;
+
 
 }
 
@@ -311,19 +306,26 @@ color:white;
 
 .notification{
 
-background:#f8fafc;
 
-padding:12px;
+background:#061a40;
 
-margin:10px;
+color:white;
 
-border-radius:10px;
+padding:20px;
+
+border-radius:15px;
+
+line-height:2;
+
 
 }
 
 
 
+
+
 @media(max-width:900px){
+
 
 .sidebar{
 
@@ -331,13 +333,6 @@ width:80px;
 
 }
 
-
-.sidebar p,
-.sidebar span{
-
-display:none;
-
-}
 
 
 .main{
@@ -347,6 +342,7 @@ margin-left:80px;
 }
 
 
+
 .cards{
 
 grid-template-columns:1fr;
@@ -354,16 +350,12 @@ grid-template-columns:1fr;
 }
 
 
-.content{
-
-grid-template-columns:1fr;
-
 }
 
-}
 
 
 </style>
+
 
 </head>
 
@@ -373,7 +365,8 @@ grid-template-columns:1fr;
 
 
 
-<!-- SIDEBAR -->
+
+
 
 <div class="sidebar">
 
@@ -384,8 +377,9 @@ grid-template-columns:1fr;
 ⚽ RFDMS
 </h1>
 
+
 <p>
-FERWAFA CONTROL CENTER
+FERWAFA ADMIN
 </p>
 
 
@@ -396,74 +390,55 @@ FERWAFA CONTROL CENTER
 <div class="menu">
 
 
-<a href="#">
+<a>
 🏠 Dashboard
 </a>
 
 
-<a href="#">
-👤 Players
-</a>
-
-
-<a href="#">
+<a>
 🏟 Clubs
 </a>
 
 
-<a href="#">
-👨‍🏫 Coaches
+<a>
+👤 Players
 </a>
 
 
-<a href="#">
-⚖ Referees
-</a>
-
-
-<a href="#">
+<a>
 🏆 Competitions
 </a>
 
 
-<a href="#">
+<a>
 🔄 Transfers
 </a>
 
 
-<a href="#">
+<a>
 🏥 Medical
 </a>
 
 
-<a href="#">
+<a>
 💰 Finance
 </a>
 
 
-<a href="#">
-📊 Analytics
+<a>
+🔎 Scouting
 </a>
 
 
-<a href="#">
-📄 Reports
+<a>
+⚙ Users
 </a>
 
 
-<a href="#">
-⚙ Settings
+<a>
+🚪 Logout
 </a>
 
-
-
-</div>
-
-
-
-<div class="logout">
-
-Logout
 
 </div>
 
@@ -474,7 +449,10 @@ Logout
 
 
 
-<!-- MAIN -->
+
+
+
+
 
 <div class="main">
 
@@ -484,15 +462,13 @@ Logout
 
 
 <h2>
-FERWAFA ADMIN DASHBOARD
+🇷🇼 FERWAFA CONTROL CENTER
 </h2>
 
 
-<div class="admin">
-
-Super Admin
-
-</div>
+<b>
+SUPER ADMIN
+</b>
 
 
 </div>
@@ -501,16 +477,17 @@ Super Admin
 
 
 
-<!-- STATISTICS -->
+
 
 <div class="cards">
 
 
+
 <div class="card">
 
-<h3>
-42
-</h3>
+<h1 id="clubs">
+0
+</h1>
 
 <p>
 Registered Clubs
@@ -520,47 +497,39 @@ Registered Clubs
 
 
 
-<div class="card">
-
-<h3>
-1850
-</h3>
-
-<p>
-Registered Players
-</p>
-
-</div>
-
 
 
 <div class="card">
 
-<h3>
-15
-</h3>
+
+<h1 id="players">
+0
+</h1>
+
 
 <p>
-Active Competitions
+Players Database
 </p>
 
+
 </div>
+
+
 
 
 
 <div class="card">
 
-<h3>
-230
-</h3>
+
+<h1 id="matches">
+0
+</h1>
+
 
 <p>
-Transfers
+Matches
 </p>
 
-</div>
-
-
 
 </div>
 
@@ -568,87 +537,191 @@ Transfers
 
 
 
+<div class="card">
 
 
-<div class="content">
+<h1 id="users">
+0
+</h1>
+
+
+<p>
+System Users
+</p>
+
+
+</div>
 
 
 
-<div class="box">
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel">
 
 
 <h2>
-Recent Matches
+⚡ Quick Actions
 </h2>
 
 
 <br>
 
 
+<button>
+➕ Add Club
+</button>
+
+
+<button>
+🏆 Create Competition
+</button>
+
+
+<button>
+🔄 Approve Transfer
+</button>
+
+
+<button>
+📊 Generate Report
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+🔔 System Intelligence Report
+</h2>
+
+
+
+<br>
+
+
+<div class="notification">
+
+
+✔ All football systems connected
+
+
+<br>
+
+
+✔ Database synchronization active
+
+
+<br>
+
+
+✔ Security monitoring enabled
+
+
+<br>
+
+
+✔ AI analytics engine ready
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+🔄 Recent Transfer Requests
+</h2>
+
+
+
 <table>
 
+
+<thead>
 
 <tr>
 
 <th>
-Home
+Player
 </th>
 
 <th>
-Away
+From
 </th>
 
 <th>
-Score
+To
 </th>
 
 <th>
 Status
 </th>
 
+
 </tr>
+
+</thead>
+
+
+
+<tbody>
 
 
 <tr>
 
 <td>
-APR FC
+No pending transfers
 </td>
 
-<td>
-Rayon Sports
-</td>
 
 <td>
-2 - 1
+-
 </td>
 
+
 <td>
-Finished
+-
 </td>
+
+
+<td>
+Waiting
+</td>
+
 
 </tr>
 
 
-<tr>
-
-<td>
-Police FC
-</td>
-
-<td>
-AS Kigali
-</td>
-
-<td>
-0 - 0
-</td>
-
-<td>
-Finished
-</td>
-
-</tr>
+</tbody>
 
 
 
@@ -663,34 +736,6 @@ Finished
 
 
 
-<div class="box">
-
-
-<h2>
-Notifications
-</h2>
-
-
-<div class="notification">
-
-New player registration request
-
-</div>
-
-
-<div class="notification">
-
-Transfer approval pending
-
-</div>
-
-
-<div class="notification">
-
-Competition starts next week
-
-</div>
-
 
 
 </div>
@@ -698,12 +743,7 @@ Competition starts next week
 
 
 
-</div>
 
-
-
-
-</div>
 
 
 
@@ -712,9 +752,62 @@ Competition starts next week
 <script>
 
 
-console.log(
-"RFDMS Dashboard Loaded"
-);
+let clubs =
+JSON.parse(
+localStorage.getItem("rfdms_clubs")
+)
+||[];
+
+
+
+
+let players =
+JSON.parse(
+localStorage.getItem("rfdms_players")
+)
+||[];
+
+
+
+
+let transfers =
+JSON.parse(
+localStorage.getItem("rfdms_transfers")
+)
+||[];
+
+
+
+
+document
+.getElementById("clubs")
+.innerHTML=
+clubs.length;
+
+
+
+
+document
+.getElementById("players")
+.innerHTML=
+players.length;
+
+
+
+
+document
+.getElementById("matches")
+.innerHTML=
+"0";
+
+
+
+document
+.getElementById("users")
+.innerHTML=
+"6";
+
+
 
 
 </script>
