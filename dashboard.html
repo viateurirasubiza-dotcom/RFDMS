@@ -933,7 +933,452 @@ Scouting Accuracy: 92%
 
 </div>
 
+<script>
 
+
+// ======================================
+// RFDMS FERWAFA COMMAND CENTER JS ENGINE
+// ======================================
+
+
+
+// SYSTEM DATABASE SIMULATION
+
+
+let systemData={
+
+clubs:42,
+
+players:5200,
+
+matches:350,
+
+competitions:18
+
+};
+
+
+
+
+
+
+
+// LIVE CLOCK
+
+
+function liveClock(){
+
+
+let date=new Date();
+
+
+let text=
+date.toLocaleString();
+
+
+
+let admin=
+document.querySelector(".admin");
+
+
+let old=
+document.getElementById("time");
+
+
+if(old){
+
+old.remove();
+
+}
+
+
+
+let span=document.createElement("p");
+
+
+span.id="time";
+
+
+span.innerHTML="🕒 "+text;
+
+
+span.style.color="#22c55e";
+
+
+span.style.fontSize="13px";
+
+
+
+admin.appendChild(span);
+
+
+}
+
+
+setInterval(liveClock,1000);
+
+
+
+
+
+
+
+
+
+// CARD COUNTER ANIMATION
+
+
+function animateCards(){
+
+
+let numbers=
+document.querySelectorAll(".card h2");
+
+
+
+numbers.forEach(num=>{
+
+
+let target=
+parseInt(num.innerHTML);
+
+
+
+let count=0;
+
+
+
+let interval=setInterval(()=>{
+
+
+count+=Math.ceil(target/50);
+
+
+
+if(count>=target){
+
+count=target;
+
+clearInterval(interval);
+
+}
+
+
+
+num.innerHTML=count;
+
+
+},30);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+// AI FOOTBALL INTELLIGENCE
+
+
+function runAI(){
+
+
+
+let accuracy=
+Math.floor(Math.random()*8)+90;
+
+
+let performance=
+Math.floor(Math.random()*10)+85;
+
+
+
+let bars=
+document.querySelectorAll(".progress div");
+
+
+
+bars[0].style.width=
+performance+"%";
+
+
+
+bars[1].style.width=
+accuracy+"%";
+
+
+
+
+
+alert(
+
+`
+🤖 RFDMS AI FOOTBALL REPORT
+
+
+System Analysis:
+
+✅ Player Monitoring Active
+
+✅ Club Data Updated
+
+✅ Scouting Accuracy:
+${accuracy}%
+
+
+Team Performance:
+${performance}%
+
+
+Recommendation:
+
+Increase youth talent scouting.
+
+`
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// CREATE AI BUTTON
+
+
+let aiButton=
+document.createElement("button");
+
+
+
+aiButton.innerHTML=
+
+"🤖 Run FERWAFA AI Analysis";
+
+
+
+aiButton.style.marginTop="20px";
+
+aiButton.style.padding="15px 25px";
+
+aiButton.style.border="none";
+
+aiButton.style.borderRadius="25px";
+
+aiButton.style.background="#22c55e";
+
+aiButton.style.fontWeight="bold";
+
+aiButton.style.cursor="pointer";
+
+
+
+
+
+document.querySelectorAll(".panel")[1]
+.appendChild(aiButton);
+
+
+
+
+
+aiButton.onclick=
+runAI;
+
+
+
+
+
+
+
+
+
+// ACTIVITY SIMULATOR
+
+
+let activities=[
+
+
+"New player registration approved ⚽",
+
+"Club license verified 🏢",
+
+"Transfer window updated 🔄",
+
+"Competition schedule published 🏆",
+
+"Medical record uploaded 🏥"
+
+];
+
+
+
+
+
+
+function addActivity(){
+
+
+
+let table=
+document.querySelector("table");
+
+
+
+let row=
+table.insertRow(1);
+
+
+
+let activity=
+activities[
+Math.floor(Math.random()*activities.length)
+];
+
+
+
+row.innerHTML=
+
+`
+
+<td>
+
+${activity}
+
+</td>
+
+
+<td>
+
+<span class="badge">
+
+Active
+
+</span>
+
+</td>
+
+`;
+
+
+
+}
+
+
+
+
+
+
+// ADD ACTIVITY BUTTON
+
+
+let activityBtn=
+document.createElement("button");
+
+
+
+activityBtn.innerHTML=
+
+"➕ Add Activity";
+
+
+
+activityBtn.style.marginTop="20px";
+
+activityBtn.style.padding="15px 25px";
+
+activityBtn.style.border="none";
+
+activityBtn.style.borderRadius="25px";
+
+activityBtn.style.background="#22c55e";
+
+activityBtn.style.cursor="pointer";
+
+
+
+
+document.querySelector(".panel")
+.appendChild(activityBtn);
+
+
+
+
+activityBtn.onclick=
+addActivity;
+
+
+
+
+
+
+
+
+
+// MENU CLICK EFFECT
+
+
+document.querySelectorAll(".menu a")
+.forEach(item=>{
+
+
+item.onclick=function(){
+
+
+alert(
+
+"Opening RFDMS Module:\n\n"+
+this.innerText
+
+);
+
+
+};
+
+
+});
+
+
+
+
+
+
+
+
+
+// INITIALIZE
+
+
+window.onload=function(){
+
+
+animateCards();
+
+
+liveClock();
+
+
+};
+
+
+
+</script>
 
 </body>
 
