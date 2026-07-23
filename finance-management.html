@@ -787,7 +787,503 @@ Ticket Sales
 
 
 
+<script>
 
+
+// ======================================
+// RFDMS FINANCE ERP JAVASCRIPT ENGINE
+// ======================================
+
+
+
+let finance={
+
+
+balance:850000000,
+
+income:1500000000,
+
+expense:650000000
+
+
+};
+
+
+
+
+
+
+// CALCULATE FINANCIAL HEALTH
+
+
+function calculateHealth(){
+
+
+let health=
+
+(
+finance.income-finance.expense
+)
+/finance.income*100;
+
+
+
+return Math.round(health);
+
+
+}
+
+
+
+
+
+
+
+
+
+// UPDATE DASHBOARD
+
+
+function updateFinance(){
+
+
+
+let cards=
+document.querySelectorAll(".card h1");
+
+
+
+cards[0].innerHTML=
+
+(finance.balance/1000000)
++"M";
+
+
+
+cards[1].innerHTML=
+
+(finance.income/1000000)
++"M";
+
+
+
+cards[2].innerHTML=
+
+(finance.expense/1000000)
++"M";
+
+
+
+cards[3].innerHTML=
+
+calculateHealth()+"%";
+
+
+
+}
+
+
+
+
+
+
+
+
+// ADD TRANSACTION
+
+
+function addTransaction(){
+
+
+
+let type=
+prompt(
+
+"Transaction Type:\nIncome or Expense"
+
+);
+
+
+
+let name=
+prompt(
+
+"Description"
+
+);
+
+
+
+let amount=
+Number(
+prompt(
+"Amount RWF"
+)
+);
+
+
+
+
+
+if(type=="Income"){
+
+
+finance.income+=amount;
+
+
+finance.balance+=amount;
+
+
+
+createTransaction(
+
+name,
+
+"+"+amount+" RWF",
+
+"income"
+
+);
+
+
+
+}
+
+else{
+
+
+finance.expense+=amount;
+
+
+finance.balance-=amount;
+
+
+
+createTransaction(
+
+name,
+
+"-"+amount+" RWF",
+
+"expense"
+
+);
+
+
+
+}
+
+
+
+
+
+updateFinance();
+
+
+
+}
+
+
+
+
+
+
+
+
+// CREATE TRANSACTION UI
+
+
+function createTransaction(
+
+name,
+
+amount,
+
+className
+
+){
+
+
+let div=
+document.createElement("div");
+
+
+div.className="transaction";
+
+
+
+div.innerHTML=
+
+`
+
+${name}
+
+<span class="${className}">
+
+${amount}
+
+</span>
+
+`;
+
+
+
+document.querySelectorAll(".panel")[0]
+.appendChild(div);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// AI FINANCIAL AUDIT
+
+
+function financialAI(){
+
+
+
+let health=
+calculateHealth();
+
+
+
+let status;
+
+
+
+if(health>=60){
+
+status="STABLE 🟢";
+
+}
+
+else{
+
+status="WARNING 🔴";
+
+}
+
+
+
+
+
+alert(
+
+`
+🤖 RFDMS FINANCE AI AUDIT
+
+
+Financial Health:
+
+${health}%
+
+
+Status:
+
+${status}
+
+
+Analysis:
+
+
+✅ Revenue Monitoring Active
+
+✅ Expense Tracking Active
+
+✅ Budget Control Enabled
+
+
+Recommendation:
+
+
+Increase academy investment.
+
+Optimize club expenses.
+
+Improve sponsorship revenue.
+
+`
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ANIMATE BARS
+
+
+function animateBars(){
+
+
+
+let bars=
+document.querySelectorAll(".bar div");
+
+
+
+bars.forEach(bar=>{
+
+
+let width=
+bar.style.width;
+
+
+
+bar.style.width="0%";
+
+
+
+setTimeout(()=>{
+
+
+bar.style.transition="2s";
+
+bar.style.width=width;
+
+
+
+},300);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+// CREATE BUTTONS
+
+
+let reportBtn=
+document.querySelector("button");
+
+
+
+reportBtn.onclick=function(){
+
+
+
+financialAI();
+
+
+
+};
+
+
+
+
+
+
+
+
+let addBtn=
+document.createElement("button");
+
+
+
+addBtn.innerHTML=
+
+"➕ Add Transaction";
+
+
+
+addBtn.style.marginTop="15px";
+
+
+
+document.querySelector(".panel")
+.appendChild(addBtn);
+
+
+
+addBtn.onclick=
+addTransaction;
+
+
+
+
+
+
+
+
+
+// AUTO REPORT
+
+
+function generateReport(){
+
+
+console.log(
+
+`
+RFDMS FINANCE REPORT
+
+Balance:
+${finance.balance} RWF
+
+Income:
+${finance.income} RWF
+
+Expenses:
+${finance.expense} RWF
+
+Health:
+${calculateHealth()}%
+
+`
+
+);
+
+
+}
+
+
+
+
+
+
+
+window.onload=function(){
+
+
+updateFinance();
+
+
+animateBars();
+
+
+generateReport();
+
+
+};
+
+
+
+</script>
 
 
 </body>
