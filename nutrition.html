@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>RFDMS | Sports Nutrition System</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+<style>
+
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+
+}
+
+
+body{
+
+background:
+
+radial-gradient(circle,#14532d,#020617);
+
+color:white;
+
+padding:25px;
+
+}
+
+
+
+
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:
+
+rgba(255,255,255,.08);
+
+padding:25px;
+
+border-radius:25px;
+
+backdrop-filter:blur(20px);
+
+}
+
+
+
+.logo{
+
+font-size:32px;
+
+font-weight:900;
+
+}
+
+
+.logo span{
+
+color:#22c55e;
+
+}
+
+
+
+.ai{
+
+background:#22c55e;
+
+color:#020617;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+.dashboard{
+
+
+margin-top:30px;
+
+
+display:grid;
+
+
+grid-template-columns:2fr 1fr;
+
+
+gap:25px;
+
+
+}
+
+
+
+
+.panel{
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+padding:30px;
+
+
+border-radius:30px;
+
+
+}
+
+
+
+.panel h2{
+
+
+color:#22c55e;
+
+
+margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+
+.player{
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:25px;
+
+
+}
+
+
+
+.avatar{
+
+
+width:120px;
+
+
+height:120px;
+
+
+background:#22c55e;
+
+
+border-radius:50%;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+font-size:55px;
+
+
+}
+
+
+
+
+.cards{
+
+
+margin-top:30px;
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(180px,1fr));
+
+
+gap:20px;
+
+
+}
+
+
+
+
+.card{
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+padding:25px;
+
+
+border-radius:20px;
+
+
+text-align:center;
+
+
+}
+
+
+
+.card i{
+
+
+font-size:35px;
+
+
+color:#22c55e;
+
+
+}
+
+
+
+.card h1{
+
+
+margin:15px 0;
+
+
+}
+
+
+
+
+
+.meal{
+
+
+display:flex;
+
+
+justify-content:space-between;
+
+
+padding:15px;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border-radius:15px;
+
+
+margin-bottom:12px;
+
+
+}
+
+
+
+
+
+.value{
+
+
+color:#22c55e;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+.bar{
+
+
+height:14px;
+
+
+background:#334155;
+
+
+border-radius:20px;
+
+
+margin:12px 0;
+
+
+}
+
+
+
+.bar div{
+
+
+height:100%;
+
+
+background:#22c55e;
+
+
+border-radius:20px;
+
+
+}
+
+
+
+
+.ai-box{
+
+
+margin-top:25px;
+
+
+background:
+
+rgba(34,197,94,.15);
+
+
+padding:25px;
+
+
+border-radius:25px;
+
+
+}
+
+
+
+
+button{
+
+
+width:100%;
+
+
+padding:15px;
+
+
+border:none;
+
+
+border-radius:30px;
+
+
+background:#22c55e;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+.dashboard{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="header">
+
+
+<div class="logo">
+
+🥗⚽
+
+<span>RFDMS Nutrition AI</span>
+
+</div>
+
+
+<div class="ai">
+
+NUTRITION ENGINE ACTIVE
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="dashboard">
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+👤 Player Nutrition Profile
+
+</h2>
+
+
+
+<div class="player">
+
+
+<div class="avatar">
+
+👤
+
+</div>
+
+
+
+<div>
+
+
+<h1>
+
+Viateur Irasubiza
+
+</h1>
+
+
+<p>
+
+APR FC | Midfielder
+
+</p>
+
+
+<p>
+
+Fitness Goal:
+
+Performance Optimization
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<i class="fa fa-weight-scale"></i>
+
+<h1>
+
+72 KG
+
+</h1>
+
+Weight
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa fa-fire"></i>
+
+<h1>
+
+3200
+
+</h1>
+
+Calories
+
+</div>
+
+
+
+
+<div class="card">
+
+<i class="fa fa-droplet"></i>
+
+<h1>
+
+3.5L
+
+</h1>
+
+Water
+
+</div>
+
+
+
+
+<div class="card">
+
+<i class="fa fa-heart-pulse"></i>
+
+<h1>
+
+8%
+
+</h1>
+
+Body Fat
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<h2 style="margin-top:35px">
+
+🍽 Daily Meal Plan
+
+</h2>
+
+
+
+
+<div class="meal">
+
+Breakfast
+
+<span class="value">
+
+Protein + Carbs
+
+</span>
+
+</div>
+
+
+
+<div class="meal">
+
+Lunch
+
+<span class="value">
+
+Balanced Diet
+
+</span>
+
+</div>
+
+
+
+<div class="meal">
+
+Pre Match
+
+<span class="value">
+
+Energy Boost
+
+</span>
+
+</div>
+
+
+
+
+<div class="meal">
+
+Recovery
+
+<span class="value">
+
+Protein Shake
+
+</span>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+🤖 AI Nutrition Report
+
+</h2>
+
+
+
+
+<p>
+
+Energy Level
+
+</p>
+
+
+<div class="bar">
+
+<div style="width:92%"></div>
+
+</div>
+
+
+
+
+
+<p>
+
+Recovery Nutrition
+
+</p>
+
+
+<div class="bar">
+
+<div style="width:88%"></div>
+
+</div>
+
+
+
+
+
+<p>
+
+Hydration
+
+</p>
+
+
+<div class="bar">
+
+<div style="width:95%"></div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="ai-box">
+
+
+🤖 AI Recommendation
+
+
+<br><br>
+
+
+✅ Increase protein after training
+
+<br>
+
+✅ Maintain hydration level
+
+<br>
+
+✅ Add recovery meal after matches
+
+<br>
+
+✅ Monitor weight weekly
+
+
+</div>
+
+
+
+
+
+<button>
+
++ Create Nutrition Plan
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="panel" style="margin-top:30px;">
+
+
+<h2>
+
+📅 Match Day Nutrition Schedule
+
+</h2>
+
+
+<div class="meal">
+
+24 Hours Before Match
+
+<span class="value">
+
+Carbohydrate Loading
+
+</span>
+
+</div>
+
+
+
+<div class="meal">
+
+3 Hours Before
+
+<span class="value">
+
+Light Energy Meal
+
+</span>
+
+</div>
+
+
+
+
+<div class="meal">
+
+After Match
+
+<span class="value">
+
+Recovery Nutrition
+
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
