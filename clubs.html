@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RFDMS | Club Management Dashboard</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+background:#eef2f7;
+display:flex;
+
+}
+
+
+/* SIDEBAR */
+
+.sidebar{
+
+width:260px;
+height:100vh;
+
+position:fixed;
+
+background:
+linear-gradient(
+180deg,
+#061a40,
+#0b6623
+);
+
+color:white;
+padding:25px;
+
+}
+
+
+.logo{
+
+text-align:center;
+margin-bottom:35px;
+
+}
+
+
+.logo h1{
+
+color:#ffd700;
+font-size:35px;
+
+}
+
+
+
+.menu a{
+
+display:block;
+
+padding:14px;
+
+margin:8px 0;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:10px;
+
+}
+
+
+
+.menu a:hover{
+
+background:rgba(255,255,255,.2);
+
+}
+
+
+
+
+
+/* MAIN */
+
+.main{
+
+margin-left:260px;
+
+padding:25px;
+
+width:100%;
+
+}
+
+
+
+
+.header{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+box-shadow:0 5px 20px #ddd;
+
+}
+
+
+.header h2{
+
+color:#061a40;
+
+}
+
+
+
+
+
+/* CARDS */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px #ddd;
+
+}
+
+
+
+.card h1{
+
+color:#061a40;
+
+}
+
+
+
+
+/* FORM */
+
+.panel{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+margin-top:25px;
+
+box-shadow:0 5px 15px #ddd;
+
+}
+
+
+input,select{
+
+padding:12px;
+
+margin:7px;
+
+border-radius:8px;
+
+border:1px solid #ccc;
+
+}
+
+
+
+button{
+
+background:#061a40;
+
+color:white;
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#0b6623;
+
+}
+
+
+
+
+/* CLUB GRID */
+
+
+.club-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:20px;
+
+margin-top:20px;
+
+}
+
+
+
+.club{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 5px 15px #ddd;
+
+}
+
+
+
+.club img{
+
+width:90px;
+
+height:90px;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:3px solid #061a40;
+
+}
+
+
+.club h3{
+
+margin-top:15px;
+
+color:#061a40;
+
+}
+
+
+
+.delete{
+
+background:#dc2626;
+
+}
+
+
+
+
+.search{
+
+width:300px;
+
+}
+
+
+
+@media(max-width:900px){
+
+
+.sidebar{
+
+width:80px;
+
+}
+
+
+.main{
+
+margin-left:80px;
+
+}
+
+
+.cards,
+.club-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- SIDEBAR -->
+
+
+<div class="sidebar">
+
+
+<div class="logo">
+
+<h1>
+⚽ RFDMS
+</h1>
+
+<p>
+FERWAFA CLUB CENTER
+</p>
+
+</div>
+
+
+
+<div class="menu">
+
+
+<a href="#">
+🏠 Dashboard
+</a>
+
+
+<a href="#">
+👤 Players
+</a>
+
+
+<a href="#">
+🏟 Clubs
+</a>
+
+
+<a href="#">
+🏆 Competitions
+</a>
+
+
+<a href="#">
+🔄 Transfers
+</a>
+
+
+<a href="#">
+💰 Finance
+</a>
+
+
+<a href="#">
+📊 Analytics
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="main">
+
+
+
+<div class="header">
+
+
+<h2>
+🏟 CLUB MANAGEMENT CENTER
+</h2>
+
+
+<b>
+FERWAFA ADMIN
+</b>
+
+
+</div>
+
+
+
+
+
+
+<!-- STATISTICS -->
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h1 id="total">
+0
+</h1>
+
+<p>Total Clubs</p>
+
+</div>
+
+
+<div class="card">
+
+<h1>
+16
+</h1>
+
+<p>Premier League</p>
+
+</div>
+
+
+<div class="card">
+
+<h1>
+20
+</h1>
+
+<p>Second Division</p>
+
+</div>
+
+
+<div class="card">
+
+<h1>
+500+
+</h1>
+
+<p>Total Players</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ADD CLUB -->
+
+
+<div class="panel">
+
+
+<h2>
+➕ Register New Club
+</h2>
+
+
+<br>
+
+
+<input id="name"
+placeholder="Club Name">
+
+
+<input id="stadium"
+placeholder="Stadium">
+
+
+<input id="coach"
+placeholder="Head Coach">
+
+
+<select id="league">
+
+
+<option>
+League
+</option>
+
+
+<option>
+Premier League
+</option>
+
+
+<option>
+Second Division
+</option>
+
+
+<option>
+Women's League
+</option>
+
+
+</select>
+
+
+
+<input 
+type="file"
+id="logo"
+accept="image/*"
+>
+
+
+
+<button onclick="addClub()">
+
+SAVE CLUB
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- DIRECTORY -->
+
+
+<div class="panel">
+
+
+<h2>
+🏟 Club Directory
+</h2>
+
+
+<br>
+
+
+<input
+class="search"
+id="search"
+placeholder="Search club..."
+onkeyup="searchClub()"
+>
+
+
+
+<div 
+class="club-grid"
+id="clubs">
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+let clubs=
+JSON.parse(
+localStorage.getItem("rfdms_clubs")
+)
+||[];
+
+
+
+let logo="";
+
+
+
+document
+.getElementById("logo")
+.onchange=function(e){
+
+
+let reader=new FileReader();
+
+
+reader.onload=function(){
+
+logo=reader.result;
+
+}
+
+
+reader.readAsDataURL(
+e.target.files[0]
+);
+
+
+};
+
+
+
+
+
+
+function addClub(){
+
+
+let club={
+
+
+name:
+document.getElementById("name").value,
+
+
+stadium:
+document.getElementById("stadium").value,
+
+
+coach:
+document.getElementById("coach").value,
+
+
+league:
+document.getElementById("league").value,
+
+
+logo:logo
+
+
+
+};
+
+
+
+clubs.push(club);
+
+
+
+localStorage.setItem(
+"rfdms_clubs",
+JSON.stringify(clubs)
+);
+
+
+
+showClubs();
+
+
+
+}
+
+
+
+
+function showClubs(){
+
+
+let box=
+document.getElementById("clubs");
+
+
+box.innerHTML="";
+
+
+
+document.getElementById("total").innerHTML=
+clubs.length;
+
+
+
+clubs.forEach(
+(c,i)=>{
+
+
+box.innerHTML+=`
+
+<div class="club">
+
+
+<img src="${c.logo}">
+
+
+<h3>${c.name}</h3>
+
+
+<p>
+🏟 ${c.stadium}
+</p>
+
+
+<p>
+👨‍🏫 ${c.coach}
+</p>
+
+
+<p>
+🏆 ${c.league}
+</p>
+
+
+
+<button 
+class="delete"
+onclick="removeClub(${i})">
+
+Delete
+
+</button>
+
+
+</div>
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+function removeClub(i){
+
+
+clubs.splice(i,1);
+
+
+
+localStorage.setItem(
+"rfdms_clubs",
+JSON.stringify(clubs)
+);
+
+
+
+showClubs();
+
+
+}
+
+
+
+
+
+
+
+function searchClub(){
+
+
+let text=
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+document
+.querySelectorAll(".club")
+.forEach(c=>{
+
+
+c.style.display=
+c.innerText
+.toLowerCase()
+.includes(text)
+?
+"block"
+:
+"none";
+
+
+});
+
+
+}
+
+
+
+showClubs();
+
+
+</script>
+
+
+</body>
+
+</html>
