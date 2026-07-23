@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+RFDMS | Create Account
+</title>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+<style>
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+
+body{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+background:
+
+linear-gradient(135deg,#020617,#052e16,#020617);
+
+color:white;
+
+}
+
+
+
+/* BOX */
+
+
+.container{
+
+width:450px;
+
+padding:40px;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border-radius:30px;
+
+
+backdrop-filter:blur(20px);
+
+
+border:
+
+1px solid rgba(255,255,255,.15);
+
+
+box-shadow:
+
+0 0 40px rgba(34,197,94,.3);
+
+
+}
+
+
+
+.logo{
+
+text-align:center;
+
+font-size:40px;
+
+font-weight:900;
+
+margin-bottom:20px;
+
+}
+
+
+.logo span{
+
+color:#22c55e;
+
+}
+
+
+
+.subtitle{
+
+text-align:center;
+
+color:#cbd5e1;
+
+margin-bottom:30px;
+
+}
+
+
+
+
+.input{
+
+margin-bottom:20px;
+
+}
+
+
+
+label{
+
+display:block;
+
+margin-bottom:8px;
+
+color:#22c55e;
+
+font-weight:bold;
+
+}
+
+
+
+input,select{
+
+
+width:100%;
+
+
+padding:15px;
+
+
+border:none;
+
+
+outline:none;
+
+
+border-radius:20px;
+
+
+background:#020617;
+
+
+color:white;
+
+
+font-size:16px;
+
+
+}
+
+
+
+
+button{
+
+
+width:100%;
+
+
+padding:16px;
+
+
+border:none;
+
+
+border-radius:30px;
+
+
+background:#22c55e;
+
+
+font-weight:bold;
+
+
+font-size:17px;
+
+
+cursor:pointer;
+
+
+margin-top:20px;
+
+
+}
+
+
+
+button:hover{
+
+box-shadow:
+
+0 0 25px #22c55e;
+
+}
+
+
+
+
+.login{
+
+text-align:center;
+
+margin-top:25px;
+
+
+}
+
+
+
+.login a{
+
+color:#22c55e;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+
+
+.message{
+
+
+margin-top:20px;
+
+
+text-align:center;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="container">
+
+
+<div class="logo">
+
+🇷🇼
+
+<span>
+
+RFDMS
+
+</span>
+
+</div>
+
+
+<div class="subtitle">
+
+Create Football Management Account
+
+</div>
+
+
+
+
+
+<div class="input">
+
+<label>
+Full Name
+</label>
+
+<input id="name" type="text" placeholder="Enter full name">
+
+</div>
+
+
+
+
+
+<div class="input">
+
+<label>
+Email
+</label>
+
+<input id="email" type="email" placeholder="example@gmail.com">
+
+</div>
+
+
+
+
+
+<div class="input">
+
+<label>
+Phone Number
+</label>
+
+<input id="phone" type="tel" placeholder="+250">
+
+</div>
+
+
+
+
+
+
+<div class="input">
+
+<label>
+Role
+</label>
+
+
+<select id="role">
+
+
+<option>
+Select Role
+</option>
+
+
+<option>
+FERWAFA ADMIN
+</option>
+
+
+<option>
+CLUB ADMIN
+</option>
+
+
+<option>
+COACH
+</option>
+
+
+<option>
+PLAYER
+</option>
+
+
+<option>
+SCOUT
+</option>
+
+
+<option>
+FAN
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+<div class="input">
+
+<label>
+Password
+</label>
+
+
+<input id="password" type="password" placeholder="Create password">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="input">
+
+<label>
+Confirm Password
+</label>
+
+
+<input id="confirm" type="password" placeholder="Confirm password">
+
+
+</div>
+
+
+
+
+
+
+<button onclick="register()">
+
+
+<i class="fa fa-user-plus"></i>
+
+Create Account
+
+
+</button>
+
+
+
+
+<div class="message" id="message"></div>
+
+
+
+
+<div class="login">
+
+Already have account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+function register(){
+
+
+
+let name =
+document.getElementById("name").value;
+
+
+let email =
+document.getElementById("email").value;
+
+
+let phone =
+document.getElementById("phone").value;
+
+
+let role =
+document.getElementById("role").value;
+
+
+let password =
+document.getElementById("password").value;
+
+
+let confirm =
+document.getElementById("confirm").value;
+
+
+
+let msg =
+document.getElementById("message");
+
+
+
+
+if(
+!name ||
+!email ||
+!phone ||
+!password
+){
+
+
+msg.innerHTML=
+"❌ Fill all fields";
+
+
+return;
+
+}
+
+
+
+
+if(password !== confirm){
+
+
+msg.innerHTML=
+"❌ Passwords do not match";
+
+
+return;
+
+
+}
+
+
+
+
+let user={
+
+
+name:name,
+
+email:email,
+
+phone:phone,
+
+role:role,
+
+password:password,
+
+
+created:
+
+new Date().toISOString()
+
+
+};
+
+
+
+
+
+localStorage.setItem(
+
+"RFDMS_USER",
+
+JSON.stringify(user)
+
+);
+
+
+
+
+
+msg.innerHTML=
+
+"✅ Account Created Successfully";
+
+
+
+
+
+setTimeout(()=>{
+
+
+window.location.href="login.html";
+
+
+},1500);
+
+
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
