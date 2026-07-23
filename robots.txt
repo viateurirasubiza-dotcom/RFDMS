@@ -1,0 +1,8 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://viateurirasubiza-dotcom.github.io/RFDMS/sitemap.xml
+
+# Optional
+Crawl-delay: 1
