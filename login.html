@@ -793,23 +793,221 @@ eye.className="fa-solid fa-eye password-eye";
 
 }
 
-
 }
+
+
 
 
 
 function login(){
 
 
-alert("Connecting to RFDMS Secure Portal...");
+let email =
+document.querySelector(
+'input[type="text"]'
+).value;
+
+
+let password =
+document.getElementById(
+"password"
+).value;
+
+
+
+let role =
+document.querySelector(
+"select"
+).value;
+
+
+
+let user =
+JSON.parse(
+localStorage.getItem(
+"RFDMS_USER"
+)
+);
+
+
+
+
+
+if(!user){
+
+
+alert(
+"❌ No account found. Please create account first."
+);
+
+
+window.location.href="register.html";
+
+
+return;
+
+}
+
+
+
+
+
+
+
+if(
+
+email !== user.email ||
+
+password !== user.password
+
+){
+
+
+alert(
+"❌ Invalid Email or Password"
+);
+
+
+return;
 
 
 }
 
 
+
+
+
+
+// SAVE LOGIN SESSION
+
+
+localStorage.setItem(
+
+"RFDMS_LOGIN",
+
+JSON.stringify(user)
+
+);
+
+
+
+
+
+
+
+alert(
+
+"✅ Welcome to RFDMS "+user.name
+
+);
+
+
+
+
+
+
+// ROLE REDIRECTION
+
+
+switch(user.role){
+
+
+
+case "FERWAFA ADMIN":
+
+
+window.location.href=
+"ferwafa.html";
+
+
+break;
+
+
+
+
+
+case "CLUB ADMIN":
+
+
+window.location.href=
+"club-dashboard.html";
+
+
+break;
+
+
+
+
+
+case "COACH":
+
+
+window.location.href=
+"coach-dashboard.html";
+
+
+break;
+
+
+
+
+
+case "PLAYER":
+
+
+window.location.href=
+"player-dashboard.html";
+
+
+break;
+
+
+
+
+
+case "SCOUT":
+
+
+window.location.href=
+"scouting.html";
+
+
+break;
+
+
+
+
+
+case "FAN":
+
+
+window.location.href=
+"fan-dashboard.html";
+
+
+break;
+
+
+
+
+
+default:
+
+
+window.location.href=
+"dashboard.html";
+
+
+}
+
+
+
+}
+
+
+
+
 </script>
-
-
 
 </body>
 
