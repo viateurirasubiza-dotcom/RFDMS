@@ -4,9 +4,13 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RFDMS | Club Management Dashboard</title>
+
+<title>
+RFDMS | Club Dashboard
+</title>
 
 
 <style>
@@ -22,16 +26,18 @@ font-family:"Segoe UI",sans-serif;
 body{
 
 background:#eef2f7;
+
 display:flex;
 
 }
 
 
-/* SIDEBAR */
+
 
 .sidebar{
 
 width:260px;
+
 height:100vh;
 
 position:fixed;
@@ -44,25 +50,32 @@ linear-gradient(
 );
 
 color:white;
+
 padding:25px;
 
 }
 
 
+
+
 .logo{
 
 text-align:center;
+
 margin-bottom:35px;
 
 }
 
 
+
 .logo h1{
 
-color:#ffd700;
 font-size:35px;
 
+color:#ffd700;
+
 }
+
 
 
 
@@ -83,18 +96,16 @@ border-radius:10px;
 }
 
 
-
 .menu a:hover{
 
-background:rgba(255,255,255,.2);
+background:
+rgba(255,255,255,.2);
 
 }
 
 
 
 
-
-/* MAIN */
 
 .main{
 
@@ -109,6 +120,7 @@ width:100%;
 
 
 
+
 .header{
 
 background:white;
@@ -117,38 +129,35 @@ padding:20px;
 
 border-radius:15px;
 
+
 display:flex;
 
 justify-content:space-between;
 
-box-shadow:0 5px 20px #ddd;
 
-}
-
-
-.header h2{
-
-color:#061a40;
+box-shadow:
+0 5px 20px #ddd;
 
 }
 
 
 
 
-
-/* CARDS */
 
 .cards{
 
 display:grid;
 
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:
+repeat(4,1fr);
+
 
 gap:20px;
 
 margin-top:25px;
 
 }
+
 
 
 
@@ -160,13 +169,17 @@ padding:25px;
 
 border-radius:15px;
 
-box-shadow:0 5px 15px #ddd;
+
+box-shadow:
+0 5px 20px #ddd;
 
 }
 
 
 
 .card h1{
+
+font-size:35px;
 
 color:#061a40;
 
@@ -175,7 +188,7 @@ color:#061a40;
 
 
 
-/* FORM */
+
 
 .panel{
 
@@ -183,26 +196,34 @@ background:white;
 
 padding:25px;
 
-border-radius:15px;
-
 margin-top:25px;
 
-box-shadow:0 5px 15px #ddd;
+border-radius:15px;
+
+
+box-shadow:
+0 5px 20px #ddd;
+
 
 }
 
 
-input,select{
+
+
+input,
+select{
 
 padding:12px;
 
-margin:7px;
+margin:5px;
 
 border-radius:8px;
 
 border:1px solid #ccc;
 
 }
+
+
 
 
 
@@ -223,7 +244,6 @@ cursor:pointer;
 }
 
 
-
 button:hover{
 
 background:#0b6623;
@@ -233,17 +253,12 @@ background:#0b6623;
 
 
 
-/* CLUB GRID */
 
+table{
 
-.club-grid{
+width:100%;
 
-display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
-gap:20px;
+border-collapse:collapse;
 
 margin-top:20px;
 
@@ -251,42 +266,23 @@ margin-top:20px;
 
 
 
-.club{
+th{
 
-background:white;
+background:#061a40;
 
-padding:20px;
+color:white;
 
-border-radius:15px;
+}
+
+
+
+td,th{
+
+padding:12px;
 
 text-align:center;
 
-box-shadow:0 5px 15px #ddd;
-
-}
-
-
-
-.club img{
-
-width:90px;
-
-height:90px;
-
-object-fit:cover;
-
-border-radius:50%;
-
-border:3px solid #061a40;
-
-}
-
-
-.club h3{
-
-margin-top:15px;
-
-color:#061a40;
+border-bottom:1px solid #ddd;
 
 }
 
@@ -301,16 +297,7 @@ background:#dc2626;
 
 
 
-.search{
-
-width:300px;
-
-}
-
-
-
 @media(max-width:900px){
-
 
 .sidebar{
 
@@ -326,16 +313,13 @@ margin-left:80px;
 }
 
 
-.cards,
-.club-grid{
+.cards{
 
 grid-template-columns:1fr;
 
 }
 
-
 }
-
 
 
 </style>
@@ -343,11 +327,11 @@ grid-template-columns:1fr;
 </head>
 
 
+
+
 <body>
 
 
-
-<!-- SIDEBAR -->
 
 
 <div class="sidebar">
@@ -355,53 +339,63 @@ grid-template-columns:1fr;
 
 <div class="logo">
 
+
 <h1>
 ⚽ RFDMS
 </h1>
 
+
 <p>
-FERWAFA CLUB CENTER
+CLUB PORTAL
 </p>
 
+
 </div>
+
+
 
 
 
 <div class="menu">
 
 
-<a href="#">
+<a>
 🏠 Dashboard
 </a>
 
 
-<a href="#">
-👤 Players
+<a>
+👥 Squad
 </a>
 
 
-<a href="#">
-🏟 Clubs
-</a>
-
-
-<a href="#">
-🏆 Competitions
-</a>
-
-
-<a href="#">
+<a>
 🔄 Transfers
 </a>
 
 
-<a href="#">
+<a>
 💰 Finance
 </a>
 
 
-<a href="#">
-📊 Analytics
+<a>
+🏥 Medical
+</a>
+
+
+<a>
+📊 Performance
+</a>
+
+
+<a>
+⚙ Settings
+</a>
+
+
+<a>
+🚪 Logout
 </a>
 
 
@@ -409,6 +403,7 @@ FERWAFA CLUB CENTER
 
 
 </div>
+
 
 
 
@@ -429,7 +424,7 @@ FERWAFA CLUB CENTER
 
 
 <b>
-FERWAFA ADMIN
+CLUB ADMIN
 </b>
 
 
@@ -440,52 +435,61 @@ FERWAFA ADMIN
 
 
 
-<!-- STATISTICS -->
-
 
 <div class="cards">
 
 
 <div class="card">
 
-<h1 id="total">
+<h1 id="players">
 0
 </h1>
 
-<p>Total Clubs</p>
+<p>
+Squad Players
+</p>
 
 </div>
+
 
 
 <div class="card">
 
 <h1>
-16
+30
 </h1>
 
-<p>Premier League</p>
+<p>
+League Position
+</p>
 
 </div>
+
+
+
+<div class="card">
+
+<h1 id="transfers">
+0
+</h1>
+
+<p>
+Transfers
+</p>
+
+</div>
+
 
 
 <div class="card">
 
 <h1>
-20
+85%
 </h1>
 
-<p>Second Division</p>
-
-</div>
-
-
-<div class="card">
-
-<h1>
-500+
-</h1>
-
-<p>Total Players</p>
+<p>
+Club Performance
+</p>
 
 </div>
 
@@ -498,15 +502,13 @@ FERWAFA ADMIN
 
 
 
-
-<!-- ADD CLUB -->
 
 
 <div class="panel">
 
 
 <h2>
-➕ Register New Club
+➕ Register Player
 </h2>
 
 
@@ -514,58 +516,24 @@ FERWAFA ADMIN
 
 
 <input id="name"
-placeholder="Club Name">
+placeholder="Player Name">
 
 
-<input id="stadium"
-placeholder="Stadium">
+<input id="position"
+placeholder="Position">
 
 
-<input id="coach"
-placeholder="Head Coach">
-
-
-<select id="league">
-
-
-<option>
-League
-</option>
-
-
-<option>
-Premier League
-</option>
-
-
-<option>
-Second Division
-</option>
-
-
-<option>
-Women's League
-</option>
-
-
-</select>
+<input id="age"
+placeholder="Age"
+type="number">
 
 
 
-<input 
-type="file"
-id="logo"
-accept="image/*"
->
+<button onclick="addPlayer()">
 
-
-
-<button onclick="addClub()">
-
-SAVE CLUB
+SAVE PLAYER
 
 </button>
-
 
 
 </div>
@@ -575,40 +543,96 @@ SAVE CLUB
 
 
 
-
-
-<!-- DIRECTORY -->
 
 
 <div class="panel">
 
 
 <h2>
-🏟 Club Directory
+👥 Squad List
 </h2>
 
 
-<br>
+
+<table>
 
 
-<input
-class="search"
-id="search"
-placeholder="Search club..."
-onkeyup="searchClub()"
->
+<thead>
+
+<tr>
+
+<th>
+Name
+</th>
+
+
+<th>
+Position
+</th>
+
+
+<th>
+Age
+</th>
+
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+</thead>
 
 
 
-<div 
-class="club-grid"
-id="clubs">
+<tbody id="squad">
+
+
+</tbody>
+
+
+
+</table>
+
 
 </div>
 
 
 
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+🔄 Transfer Center
+</h2>
+
+
+<p>
+
+No pending transfer requests
+
+</p>
+
+
 </div>
+
+
+
+
+
+
+
+</div>
+
+
 
 
 
@@ -619,88 +643,60 @@ id="clubs">
 <script>
 
 
-let clubs=
+let players =
+
 JSON.parse(
-localStorage.getItem("rfdms_clubs")
+
+localStorage.getItem(
+"rfdms_players"
 )
-||[];
 
-
-
-let logo="";
-
-
-
-document
-.getElementById("logo")
-.onchange=function(e){
-
-
-let reader=new FileReader();
-
-
-reader.onload=function(){
-
-logo=reader.result;
-
-}
-
-
-reader.readAsDataURL(
-e.target.files[0]
-);
-
-
-};
+)
+||
+[];
 
 
 
 
 
+function addPlayer(){
 
-function addClub(){
 
 
-let club={
+let player={
 
 
 name:
 document.getElementById("name").value,
 
 
-stadium:
-document.getElementById("stadium").value,
+position:
+document.getElementById("position").value,
 
 
-coach:
-document.getElementById("coach").value,
-
-
-league:
-document.getElementById("league").value,
-
-
-logo:logo
-
+age:
+document.getElementById("age").value
 
 
 };
 
 
 
-clubs.push(club);
+players.push(player);
 
 
 
 localStorage.setItem(
-"rfdms_clubs",
-JSON.stringify(clubs)
+
+"rfdms_players",
+
+JSON.stringify(players)
+
 );
 
 
 
-showClubs();
-
+showPlayers();
 
 
 }
@@ -708,63 +704,60 @@ showClubs();
 
 
 
-function showClubs(){
 
 
-let box=
-document.getElementById("clubs");
-
-
-box.innerHTML="";
+function showPlayers(){
 
 
 
-document.getElementById("total").innerHTML=
-clubs.length;
+let table =
+document.getElementById("squad");
+
+
+table.innerHTML="";
 
 
 
-clubs.forEach(
-(c,i)=>{
+players.forEach(
+(p,i)=>{
 
 
-box.innerHTML+=`
+table.innerHTML+=`
 
-<div class="club">
-
-
-<img src="${c.logo}">
+<tr>
 
 
-<h3>${c.name}</h3>
+<td>
+${p.name}
+</td>
 
 
-<p>
-🏟 ${c.stadium}
-</p>
+<td>
+${p.position}
+</td>
 
 
-<p>
-👨‍🏫 ${c.coach}
-</p>
+<td>
+${p.age}
+</td>
 
 
-<p>
-🏆 ${c.league}
-</p>
+<td>
 
-
-
-<button 
+<button
 class="delete"
-onclick="removeClub(${i})">
+onclick="deletePlayer(${i})">
 
 Delete
 
 </button>
 
 
-</div>
+</td>
+
+
+</tr>
+
 
 `;
 
@@ -772,29 +765,37 @@ Delete
 });
 
 
+
+document.getElementById("players")
+.innerHTML=
+players.length;
+
+
+
 }
 
 
 
 
 
+function deletePlayer(i){
 
 
-function removeClub(i){
-
-
-clubs.splice(i,1);
+players.splice(i,1);
 
 
 
 localStorage.setItem(
-"rfdms_clubs",
-JSON.stringify(clubs)
+
+"rfdms_players",
+
+JSON.stringify(players)
+
 );
 
 
 
-showClubs();
+showPlayers();
 
 
 }
@@ -802,46 +803,11 @@ showClubs();
 
 
 
-
-
-
-function searchClub(){
-
-
-let text=
-document
-.getElementById("search")
-.value
-.toLowerCase();
-
-
-
-document
-.querySelectorAll(".club")
-.forEach(c=>{
-
-
-c.style.display=
-c.innerText
-.toLowerCase()
-.includes(text)
-?
-"block"
-:
-"none";
-
-
-});
-
-
-}
-
-
-
-showClubs();
+showPlayers();
 
 
 </script>
+
 
 
 </body>
