@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>RFDMS | Elite GPS Player Tracking</title>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+min-height:100vh;
+
+background:
+radial-gradient(circle at top,#14532d,#020617);
+
+color:white;
+
+padding:25px;
+
+}
+
+
+
+/* HEADER */
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:25px;
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:25px;
+
+backdrop-filter:blur(20px);
+
+}
+
+
+
+.logo{
+
+font-size:32px;
+
+font-weight:900;
+
+}
+
+
+.logo span{
+
+color:#22c55e;
+
+}
+
+
+
+.live{
+
+background:#ef4444;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+animation:pulse 1.5s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+box-shadow:0 0 25px red;
+}
+
+}
+
+
+
+/* MAIN */
+
+.dashboard{
+
+margin-top:30px;
+
+display:grid;
+
+grid-template-columns:3fr 1fr;
+
+gap:25px;
+
+}
+
+
+
+
+/* PITCH */
+
+
+.pitch{
+
+height:700px;
+
+position:relative;
+
+background:
+
+linear-gradient(
+90deg,
+#16a34a,
+#15803d
+);
+
+border:5px solid white;
+
+border-radius:35px;
+
+overflow:hidden;
+
+}
+
+
+
+.pitch:before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:0;
+
+height:100%;
+
+width:3px;
+
+background:white;
+
+}
+
+
+
+.circle{
+
+position:absolute;
+
+width:140px;
+
+height:140px;
+
+border:3px solid white;
+
+border-radius:50%;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+}
+
+
+
+/* PLAYER */
+
+.player{
+
+
+position:absolute;
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+background:#22c55e;
+
+color:#020617;
+
+font-weight:900;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border:4px solid white;
+
+box-shadow:
+
+0 0 25px #22c55e;
+
+
+animation:move 4s infinite alternate;
+
+
+}
+
+
+
+@keyframes move{
+
+to{
+
+transform:translate(15px,-20px);
+
+}
+
+}
+
+
+
+
+.trail{
+
+position:absolute;
+
+width:150px;
+
+height:150px;
+
+border-radius:50%;
+
+background:
+
+rgba(34,197,94,.25);
+
+filter:blur(20px);
+
+}
+
+
+
+
+
+/* PANEL */
+
+
+.panel{
+
+background:
+
+rgba(255,255,255,.08);
+
+padding:25px;
+
+border-radius:30px;
+
+backdrop-filter:blur(20px);
+
+}
+
+
+
+.panel h2{
+
+color:#22c55e;
+
+margin-bottom:20px;
+
+}
+
+
+
+
+.metric{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:15px;
+
+margin:12px 0;
+
+background:
+
+rgba(255,255,255,.08);
+
+border-radius:18px;
+
+}
+
+
+
+.value{
+
+color:#22c55e;
+
+font-weight:bold;
+
+}
+
+
+
+/* SPEED */
+
+
+.speed{
+
+height:160px;
+
+width:160px;
+
+border-radius:50%;
+
+border:15px solid #22c55e;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:35px;
+
+font-weight:bold;
+
+}
+
+
+
+/* BARS */
+
+
+.bar{
+
+height:12px;
+
+background:#334155;
+
+border-radius:20px;
+
+margin:15px 0;
+
+}
+
+
+
+.bar div{
+
+height:100%;
+
+background:#22c55e;
+
+border-radius:20px;
+
+}
+
+
+
+
+.alert{
+
+margin-top:20px;
+
+padding:20px;
+
+border-radius:20px;
+
+background:
+
+rgba(34,197,94,.15);
+
+}
+
+
+
+/* MOBILE */
+
+
+@media(max-width:900px){
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="header">
+
+
+<div class="logo">
+
+📍⚽
+
+<span>RFDMS GPS AI TRACKING</span>
+
+</div>
+
+
+<div class="live">
+
+● LIVE DATA
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="dashboard">
+
+
+
+
+
+<div class="pitch">
+
+
+<div class="circle"></div>
+
+
+
+<div class="trail"
+
+style="top:40%;left:45%">
+
+</div>
+
+
+
+<div class="player"
+
+style="top:45%;left:50%">
+
+10
+
+</div>
+
+
+
+<div class="player"
+
+style="top:70%;left:30%">
+
+5
+
+</div>
+
+
+
+<div class="player"
+
+style="top:25%;left:70%">
+
+9
+
+</div>
+
+
+
+<div class="player"
+
+style="top:55%;left:75%">
+
+7
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+Player GPS
+
+</h2>
+
+
+
+
+<div class="speed">
+
+34
+
+</div>
+
+
+<p style="text-align:center">
+
+KM/H TOP SPEED
+
+</p>
+
+
+
+
+
+<div class="metric">
+
+Distance
+
+<span class="value">
+
+11.4 KM
+
+</span>
+
+</div>
+
+
+
+
+<div class="metric">
+
+Sprint
+
+<span class="value">
+
+32
+
+</span>
+
+</div>
+
+
+
+<div class="metric">
+
+Heart Rate
+
+<span class="value">
+
+168 BPM
+
+</span>
+
+</div>
+
+
+
+<div class="metric">
+
+Fatigue
+
+<span class="value">
+
+18%
+
+</span>
+
+</div>
+
+
+
+
+
+<h2>
+
+Performance
+
+</h2>
+
+
+Passing
+
+
+<div class="bar">
+
+<div style="width:92%"></div>
+
+</div>
+
+
+
+Fitness
+
+
+<div class="bar">
+
+<div style="width:86%"></div>
+
+</div>
+
+
+
+
+Positioning
+
+
+<div class="bar">
+
+<div style="width:90%"></div>
+
+</div>
+
+
+
+
+
+
+<div class="alert">
+
+
+🤖 AI Coach Advice
+
+
+<br><br>
+
+
+Player intensity is excellent.
+
+Maintain hydration and recovery.
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+
+</html>
