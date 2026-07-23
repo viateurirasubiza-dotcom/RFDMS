@@ -8,194 +8,349 @@
 
 <title>RFDMS | Rwanda Football Digital Management System</title>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
 <style>
 
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 
 body{
 
-    background:
-    radial-gradient(circle at top,#123,#020617);
+background:
+linear-gradient(135deg,#020617,#052e16,#020617);
 
-    color:white;
-    min-height:100vh;
+color:white;
+overflow-x:hidden;
 
 }
+
+
+
+/* ANIMATED BACKGROUND */
+
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+height:600px;
+
+background:#22c55e;
+
+filter:blur(180px);
+
+opacity:.25;
+
+top:-200px;
+left:-200px;
+
+z-index:-1;
+
+}
+
+
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#2563eb;
+
+filter:blur(180px);
+
+opacity:.25;
+
+bottom:-150px;
+right:-150px;
+
+z-index:-1;
+
+}
+
+
 
 
 
 /* NAVBAR */
 
-header{
 
-    width:100%;
-    padding:20px 8%;
+.navbar{
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 
-    background:rgba(255,255,255,0.08);
+width:90%;
 
-    backdrop-filter:blur(15px);
+margin:20px auto;
 
-    position:fixed;
-    top:0;
-    z-index:100;
+padding:18px 35px;
+
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+
+background:
+rgba(255,255,255,.08);
+
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:25px;
+
+
+backdrop-filter:blur(20px);
+
+
+position:sticky;
+
+top:10px;
+
+z-index:100;
+
 
 }
 
 
+
 .logo{
 
-    font-size:28px;
-    font-weight:900;
+font-size:30px;
 
-    color:#22c55e;
+font-weight:900;
 
 }
 
 
 .logo span{
 
-    color:white;
+color:#22c55e;
 
 }
 
 
-nav a{
 
-    color:white;
-    text-decoration:none;
+.nav a{
 
-    margin-left:30px;
+color:white;
 
-    font-weight:600;
+text-decoration:none;
+
+margin:0 15px;
+
+font-weight:600;
+
+}
+
+
+.nav a:hover{
+
+color:#22c55e;
 
 }
 
 
-nav a:hover{
 
-    color:#22c55e;
+
+.login{
+
+background:#22c55e;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+color:#020617!important;
 
 }
+
+
 
 
 
 /* HERO */
 
+
 .hero{
 
-    padding:150px 8% 80px;
+width:90%;
 
-    display:flex;
+margin:80px auto;
 
-    align-items:center;
+display:grid;
 
-    justify-content:space-between;
+grid-template-columns:1fr 1fr;
 
-    gap:50px;
+align-items:center;
 
-}
+gap:50px;
 
-
-.hero-text{
-
-    max-width:600px;
 
 }
+
 
 
 .hero h1{
 
-    font-size:55px;
+font-size:70px;
 
-    line-height:1.1;
+line-height:1.1;
 
 }
 
 
 .hero h1 span{
 
-    color:#22c55e;
+color:#22c55e;
 
 }
 
 
 .hero p{
 
-    margin-top:20px;
+font-size:22px;
 
-    font-size:20px;
+color:#cbd5e1;
 
-    color:#cbd5e1;
+margin-top:25px;
+
+line-height:1.6;
+
+}
+
+
+
+.buttons{
+
+margin-top:40px;
 
 }
 
 
 .btn{
 
-    display:inline-block;
 
-    margin-top:30px;
+padding:16px 35px;
 
-    padding:15px 35px;
+border-radius:40px;
 
-    border-radius:30px;
+background:#22c55e;
 
-    background:#22c55e;
+color:#020617;
 
-    color:#020617;
+font-weight:bold;
 
-    text-decoration:none;
+text-decoration:none;
 
-    font-weight:bold;
+margin-right:15px;
+
 
 }
 
 
 
-/* FOOTBALL BALL */
+.btn2{
 
-.ball{
 
-    width:300px;
-    height:300px;
+padding:16px 35px;
 
-    border-radius:50%;
+border-radius:40px;
 
-    background:
-    linear-gradient(135deg,#22c55e,#0f172a);
+border:1px solid #22c55e;
 
-    display:flex;
+color:white;
 
-    justify-content:center;
-    align-items:center;
-
-    font-size:120px;
-
-    box-shadow:
-    0 0 80px #22c55e;
-
-    animation:float 4s infinite;
+text-decoration:none;
 
 }
 
 
-@keyframes float{
+
+
+
+/* FOOTBALL VISUAL */
+
+
+.visual{
+
+height:450px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+.circle{
+
+
+width:350px;
+
+height:350px;
+
+
+border-radius:50%;
+
+
+background:
+
+linear-gradient(135deg,#22c55e,#0f172a);
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+font-size:150px;
+
+
+box-shadow:
+
+0 0 80px #22c55e;
+
+
+animation:move 4s infinite;
+
+
+}
+
+
+
+@keyframes move{
+
 
 50%{
-transform:translateY(-20px);
+
+transform:translateY(-30px) rotate(10deg);
+
 }
 
 }
+
+
 
 
 
@@ -204,110 +359,166 @@ transform:translateY(-20px);
 
 .stats{
 
-    padding:20px 8%;
 
-    display:grid;
+width:90%;
 
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+margin:auto;
 
-    gap:25px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+
+gap:25px;
+
 
 }
 
 
-.stat-card{
+.stat{
 
-    background:rgba(255,255,255,.08);
 
-    padding:30px;
+background:
 
-    border-radius:20px;
+rgba(255,255,255,.08);
 
-    text-align:center;
 
-    backdrop-filter:blur(15px);
+padding:35px;
+
+border-radius:25px;
+
+text-align:center;
+
+
+backdrop-filter:blur(20px);
+
+
+}
+
+
+
+.stat i{
+
+font-size:35px;
+
+color:#22c55e;
 
 }
 
 
-.stat-card h2{
+.stat h2{
 
-    color:#22c55e;
+font-size:40px;
 
-    font-size:35px;
+margin:15px 0;
 
 }
+
 
 
 
 /* MODULES */
 
 
-.modules{
+.section{
 
-    padding:60px 8%;
+width:90%;
+
+margin:100px auto;
+
 
 }
 
 
 .title{
 
-    text-align:center;
+text-align:center;
 
-    font-size:35px;
+font-size:45px;
 
-    margin-bottom:40px;
+margin-bottom:50px;
 
 }
 
 
 
-.grid{
+.cards{
+
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:
 
-gap:25px;
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
 
 }
+
 
 
 .card{
 
 
 background:
-rgba(255,255,255,.08);
+
+rgba(255,255,255,.07);
 
 
-padding:30px;
+padding:35px;
 
-border-radius:25px;
+border-radius:30px;
+
+
+border:
+
+1px solid rgba(255,255,255,.1);
+
 
 transition:.4s;
 
-border:1px solid rgba(255,255,255,.1);
-
 
 }
+
 
 
 .card:hover{
 
-transform:translateY(-10px);
 
-box-shadow:0 0 30px #22c55e;
+transform:translateY(-15px);
+
+
+box-shadow:
+
+0 0 40px #22c55e;
+
 
 }
+
+
+
+.card i{
+
+font-size:45px;
+
+color:#22c55e;
+
+margin-bottom:20px;
+
+}
+
 
 
 .card h3{
 
-color:#22c55e;
+font-size:25px;
 
 margin-bottom:15px;
 
 }
+
 
 
 .card p{
@@ -318,31 +529,37 @@ color:#cbd5e1;
 
 
 
+
 /* FOOTER */
 
 
 footer{
 
-margin-top:50px;
 
-padding:30px;
+margin-top:80px;
+
+padding:40px;
 
 text-align:center;
 
+
 background:#020617;
 
+
 color:#94a3b8;
+
 
 }
 
 
 
-@media(max-width:800px){
+
+@media(max-width:900px){
 
 
 .hero{
 
-flex-direction:column;
+grid-template-columns:1fr;
 
 text-align:center;
 
@@ -351,30 +568,34 @@ text-align:center;
 
 .hero h1{
 
-font-size:40px;
+font-size:45px;
 
 }
 
 
-nav{
+.nav{
 
 display:none;
 
 }
 
+
 }
+
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
 
-<header>
+<div class="navbar">
 
 
 <div class="logo">
@@ -384,52 +605,23 @@ display:none;
 </div>
 
 
-<nav>
+
+<div class="nav">
 
 <a href="#">Home</a>
+
 <a href="#">Players</a>
+
 <a href="#">Clubs</a>
-<a href="#">Matches</a>
-<a href="#">Login</a>
 
-</nav>
+<a href="#">Competitions</a>
 
-
-</header>
+<a href="#">AI Analytics</a>
 
 
+<a class="login" href="login.html">
 
-<section class="hero">
-
-
-<div class="hero-text">
-
-
-<h1>
-
-Rwanda Football
-
-<br>
-
-<span>Digital Management System</span>
-
-</h1>
-
-
-<p>
-
-One powerful platform to manage
-all football activities in Rwanda.
-
-FERWAFA, Clubs, Players,
-Referees and Fans.
-
-</p>
-
-
-<a class="btn" href="#modules">
-
-Explore System
+Login
 
 </a>
 
@@ -437,15 +629,84 @@ Explore System
 </div>
 
 
+</div>
 
-<div class="ball">
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+
+The Future Of
+
+<br>
+
+<span>Rwandan Football</span>
+
+</h1>
+
+
+<p>
+
+Rwanda Football Digital Management System
+
+is an intelligent platform connecting
+
+FERWAFA, Clubs, Players, Coaches,
+
+Referees and Fans in one ecosystem.
+
+</p>
+
+
+
+<div class="buttons">
+
+<a class="btn" href="#modules">
+
+Explore Platform
+
+</a>
+
+
+<a class="btn2">
+
+Watch Demo
+
+</a>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="visual">
+
+
+<div class="circle">
 
 ⚽
 
 </div>
 
 
+</div>
+
+
+
 </section>
+
+
 
 
 
@@ -454,38 +715,48 @@ Explore System
 <section class="stats">
 
 
-<div class="stat-card">
+<div class="stat">
 
-<h2>30+</h2>
+<i class="fa-solid fa-shield-halved"></i>
 
-<p>Registered Clubs</p>
+<h2>42+</h2>
+
+<p>Clubs Connected</p>
 
 </div>
 
 
-<div class="stat-card">
+<div class="stat">
+
+<i class="fa-solid fa-user"></i>
 
 <h2>5000+</h2>
 
-<p>Players</p>
+<p>Players Database</p>
 
 </div>
 
 
-<div class="stat-card">
+
+<div class="stat">
+
+<i class="fa-solid fa-trophy"></i>
 
 <h2>200+</h2>
 
-<p>Matches</p>
+<p>Competitions</p>
 
 </div>
 
 
-<div class="stat-card">
 
-<h2>100+</h2>
+<div class="stat">
 
-<p>Referees</p>
+<i class="fa-solid fa-chart-line"></i>
+
+<h2>AI</h2>
+
+<p>Football Analytics</p>
 
 </div>
 
@@ -496,40 +767,63 @@ Explore System
 
 
 
-<section class="modules" id="modules">
+
+
+<section class="section" id="modules">
 
 
 <h2 class="title">
 
-RFDMS Core Modules
+Powerful Football Modules
 
 </h2>
 
 
 
-<div class="grid">
+<div class="cards">
 
 
 <div class="card">
 
-<h3>🏢 FERWAFA Admin</h3>
+<i class="fa-solid fa-building"></i>
+
+<h3>
+
+FERWAFA Control Center
+
+</h3>
+
 
 <p>
-Central football administration,
-users, permissions and reports.
+
+Complete administration,
+permissions and national reports.
+
 </p>
 
 </div>
 
 
 
+
+
 <div class="card">
 
-<h3>⚽ Player Management</h3>
+<i class="fa-solid fa-person-running"></i>
+
+
+<h3>
+
+Player Management
+
+</h3>
+
 
 <p>
-Digital player profiles,
-statistics and history.
+
+Digital player identity,
+statistics and career history.
+
 </p>
 
 </div>
@@ -537,13 +831,24 @@ statistics and history.
 
 
 
+
 <div class="card">
 
-<h3>🏟 Club Management</h3>
+<i class="fa-solid fa-futbol"></i>
+
+
+<h3>
+
+Club Management
+
+</h3>
+
 
 <p>
-Club dashboard, staff,
+
+Manage teams, coaches,
 training and finance.
+
 </p>
 
 </div>
@@ -554,11 +859,21 @@ training and finance.
 
 <div class="card">
 
-<h3>🏆 Competition</h3>
+<i class="fa-solid fa-brain"></i>
+
+
+<h3>
+
+AI Football Analytics
+
+</h3>
+
 
 <p>
-Fixtures, results,
-league tables and rankings.
+
+Performance prediction,
+scouting and intelligence.
+
 </p>
 
 </div>
@@ -569,11 +884,21 @@ league tables and rankings.
 
 <div class="card">
 
-<h3>🏥 Medical System</h3>
+<i class="fa-solid fa-file-contract"></i>
+
+
+<h3>
+
+Transfer System
+
+</h3>
+
 
 <p>
-Injury records,
-fitness and clearance.
+
+Digital transfers,
+contracts and approvals.
+
 </p>
 
 </div>
@@ -584,11 +909,21 @@ fitness and clearance.
 
 <div class="card">
 
-<h3>🤖 AI Analytics</h3>
+<i class="fa-solid fa-heart-pulse"></i>
+
+
+<h3>
+
+Medical System
+
+</h3>
+
 
 <p>
-Performance analysis,
-prediction and scouting.
+
+Player health,
+injuries and fitness.
+
 </p>
 
 </div>
@@ -606,11 +941,25 @@ prediction and scouting.
 
 <footer>
 
-© 2026 Rwanda Football Digital Management System (RFDMS)
+
+<h2>
+
+RFDMS 🇷🇼
+
+</h2>
+
+
+<p>
+
+One Platform To Manage All Football Activities In Rwanda
+
+</p>
+
 
 <br>
 
-Designed for the future of Rwandan Football 🇷🇼
+© 2026 Rwanda Football Digital Management System
+
 
 </footer>
 
