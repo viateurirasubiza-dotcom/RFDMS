@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RFDMS | Coach Dashboard</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#f1f5f9;
+display:flex;
+}
+
+.sidebar{
+width:250px;
+height:100vh;
+background:#0f172a;
+color:#fff;
+position:fixed;
+left:0;
+top:0;
+overflow:auto;
+}
+
+.logo{
+padding:20px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+background:#16a34a;
+}
+
+.sidebar a{
+display:block;
+padding:15px 20px;
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.sidebar a:hover{
+background:#22c55e;
+padding-left:30px;
+}
+
+.main{
+margin-left:250px;
+width:calc(100% - 250px);
+}
+
+.header{
+background:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.card h3{
+color:#64748b;
+margin-bottom:10px;
+}
+
+.card h1{
+color:#16a34a;
+}
+
+.section{
+margin:20px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+th,td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#16a34a;
+color:white;
+}
+
+button{
+background:#16a34a;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#15803d;
+}
+
+@media(max-width:768px){
+.sidebar{
+width:70px;
+}
+.sidebar a span{
+display:none;
+}
+.main{
+margin-left:70px;
+width:calc(100% - 70px);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+⚽ RFDMS
+</div>
+
+<a href="#"><i class="fa fa-home"></i> <span>Dashboard</span></a>
+<a href="#"><i class="fa fa-users"></i> <span>Players</span></a>
+<a href="#"><i class="fa fa-calendar"></i> <span>Training</span></a>
+<a href="#"><i class="fa fa-futbol"></i> <span>Matches</span></a>
+<a href="#"><i class="fa fa-chart-line"></i> <span>Performance</span></a>
+<a href="#"><i class="fa fa-bell"></i> <span>Notifications</span></a>
+<a href="login.html"><i class="fa fa-right-from-bracket"></i> <span>Logout</span></a>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+<h2>Coach Dashboard</h2>
+
+<div>
+Welcome Coach 👋
+</div>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Players</h3>
+<h1>28</h1>
+</div>
+
+<div class="card">
+<h3>Upcoming Matches</h3>
+<h1>5</h1>
+</div>
+
+<div class="card">
+<h3>Training Sessions</h3>
+<h1>12</h1>
+</div>
+
+<div class="card">
+<h3>Wins</h3>
+<h1>18</h1>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Player List</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Position</th>
+<th>Age</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Jean Claude</td>
+<td>Forward</td>
+<td>22</td>
+<td>Available</td>
+</tr>
+
+<tr>
+<td>Eric</td>
+<td>Midfielder</td>
+<td>24</td>
+<td>Training</td>
+</tr>
+
+<tr>
+<td>Patrick</td>
+<td>Defender</td>
+<td>21</td>
+<td>Injured</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>Today's Training</h2>
+
+<ul>
+<li>08:00 - Warm Up</li>
+<li>09:00 - Passing Drills</li>
+<li>10:00 - Tactical Session</li>
+<li>11:00 - Match Practice</li>
+</ul>
+
+<br>
+
+<button onclick="alert('Training Saved Successfully')">
+Save Training
+</button>
+
+</div>
+
+</div>
+<!-- CHARTS & MANAGEMENT SECTION -->
+
+<div class="section">
+
+<h2>📊 Player Performance Analytics</h2>
+
+<canvas id="performanceChart"></canvas>
+
+</div>
+
+
+<div class="section">
+
+<h2>⚽ Upcoming Matches</h2>
+
+<table>
+
+<tr>
+<th>Date</th>
+<th>Opponent</th>
+<th>Venue</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>28 July 2026</td>
+<td>APR FC</td>
+<td>Kigali Stadium</td>
+<td>Upcoming</td>
+</tr>
+
+<tr>
+<td>05 August 2026</td>
+<td>Police FC</td>
+<td>Amahoro Stadium</td>
+<td>Scheduled</td>
+</tr>
+
+</table>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>👥 Squad Selection</h2>
+
+<table>
+
+<tr>
+<th>Player</th>
+<th>Position</th>
+<th>Select</th>
+</tr>
+
+
+<tr>
+<td>Jean Claude</td>
+<td>Forward</td>
+<td>
+<input type="checkbox">
+</td>
+</tr>
+
+
+<tr>
+<td>Eric Hakizimana</td>
+<td>Midfielder</td>
+<td>
+<input type="checkbox">
+</td>
+</tr>
+
+
+<tr>
+<td>Patrick Ndayisaba</td>
+<td>Defender</td>
+<td>
+<input type="checkbox">
+</td>
+</tr>
+
+
+</table>
+
+<br>
+
+<button onclick="saveSquad()">
+Save Squad
+</button>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>🔔 Coach Notifications</h2>
+
+<ul id="notifications">
+
+<li>New player registration request</li>
+<li>Match scheduled tomorrow</li>
+<li>Training report completed</li>
+
+</ul>
+<!-- COACH PROFILE & SETTINGS -->
+
+<div class="section">
+
+<h2>👨‍🏫 Coach Profile</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Role</th>
+<th>Team</th>
+<th>Contact</th>
+</tr>
+
+<tr>
+<td>Coach Jean Claude</td>
+<td>Head Coach</td>
+<td>Rwanda Future FC</td>
+<td>+250 7XX XXX XXX</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="section">
+
+<h2>⚙️ Settings</h2>
+
+
+<button onclick="toggleMode()">
+🌙 Dark Mode
+</button>
+
+
+<button onclick="updateProfile()">
+👤 Update Profile
+</button>
+
+
+<button onclick="clearData()">
+🗑️ Clear Session
+</button>
+
+
+</div>
+
+
+<footer style="
+background:#0f172a;
+color:white;
+padding:20px;
+text-align:center;
+margin-top:20px;
+">
+
+© 2026 RFDMS | Rwanda Football Digital Management System
+<br>
+Future Of Rwandan Football 🇷🇼⚽
+
+</footer>
+
+
+
+<style>
+
+.dark{
+
+background:#020617;
+color:white;
+
+}
+
+.dark .section,
+.dark .card,
+.dark .header{
+
+background:#1e293b;
+color:white;
+
+}
+
+
+.dark table{
+
+color:white;
+
+}
+
+
+</style>
+
+
+
+<script>
+
+
+// DARK MODE
+
+function toggleMode(){
+
+document.body.classList.toggle(
+"dark"
+);
+
+}
+
+
+
+
+// UPDATE PROFILE
+
+function updateProfile(){
+
+let name =
+prompt(
+"Enter Coach Name"
+);
+
+
+if(name){
+
+alert(
+"Profile Updated: "+name
+);
+
+}
+
+}
+
+
+
+
+// CLEAR SESSION
+
+function clearData(){
+
+localStorage.removeItem(
+"RFDMS_LOGIN"
+);
+
+
+alert(
+"Session Cleared"
+);
+
+
+window.location.href=
+"login.html";
+
+}
+
+
+
+
+// CHECK LOGIN
+
+let loginUser =
+localStorage.getItem(
+"RFDMS_LOGIN"
+);
+
+
+if(!loginUser){
+
+// redirect if not logged
+
+console.log(
+"Guest Access"
+);
+
+}
+
+
+
+
+
+
+<!-- CHART LIBRARY -->
+
+
+                                                      
+
+
+<script>
+
+
+// PERFORMANCE CHART
+
+const ctx =
+document.getElementById(
+"performanceChart"
+);
+
+
+new Chart(ctx,{
+
+type:"bar",
+
+data:{
+
+labels:[
+"Goals",
+"Assists",
+"Passes",
+"Defense"
+],
+
+datasets:[{
+
+label:"Team Performance",
+
+data:[
+35,
+28,
+85,
+70
+]
+
+}]
+
+},
+
+options:{
+
+responsive:true
+
+}
+
+});
+
+
+
+
+// SAVE SELECTED SQUAD
+
+function saveSquad(){
+
+let selected =
+document.querySelectorAll(
+'input[type="checkbox"]:checked'
+).length;
+
+
+alert(
+selected+
+" Players Selected Successfully ⚽"
+);
+
+}
+
+
+
+
+// LOGOUT
+
+function logout(){
+
+localStorage.removeItem(
+"RFDMS_LOGIN"
+);
+
+window.location.href=
+"login.html";
+
+}
+
+
+  </script>
+</body>
+</html>
